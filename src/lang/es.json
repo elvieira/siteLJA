@@ -130,10 +130,10 @@
         "description": "Louvor JA es un software robusto para administrar música, videos y letras en los programas de tu iglesia o grupo pequeño. Elige tu versión a continuación.",
         "requirements_title": "Requisitos del Sistema:",
         "requirements": [
-            "Sistema Operativo: Windows 10 o superior",
-            "Memoria RAM: Mínimo 4GB (Recomendado 8GB)",
-            "Espacio en disco: 2GB libres",
-            "Conexión a internet (Solo versión Web)"
+            "<strong>Sistema Operativo:</strong> Windows 7 o superior",
+            "<strong>Mínimo:</strong> Procesador Dual Core, 4 GB de RAM y 25 GB de espacio libre",
+            "<strong>Recomendado:</strong> Intel Core i3 (5ª Gen) o superior, 8 GB de RAM y 25 GB de espacio libre",
+            "<strong>Versión Web:</strong> Navegador moderno y conexión a internet"
         ],
         "button": {
             "pt": "Windows (Português)",

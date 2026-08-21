@@ -21,7 +21,7 @@
                 :key="index"
                 class="mb-3 req-item"
               >
-                <i class="fa fa-check text-success mr-3"></i> {{ req }}
+                <i class="fa fa-check text-success mr-3"></i> <span v-html="req"></span>
               </li>
             </ul>
           </div>

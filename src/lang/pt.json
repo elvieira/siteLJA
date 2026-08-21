@@ -128,12 +128,12 @@
         "title": "Faça o Download",
         "subtitle": "Transforme a projeção dos seus cultos.",
         "description": "O Louvor JA é um software robusto para gerenciar músicas, vídeos e letreiros nas programações de sua igreja ou pequeno grupo. Escolha a sua versão abaixo.",
-        "requirements_title": "Pré-requisitos do Sistema:",
+        "requirements_title": "Requisitos do Sistema:",
         "requirements": [
-            "Sistema Operacional: Windows 10 ou superior",
-            "Memória RAM: Mínimo 4GB (Recomendado 8GB)",
-            "Espaço em disco: 2GB livres",
-            "Conexão à internet (Apenas versão Web)"
+            "<strong>Sistema Operacional:</strong> Windows 7 ou superior",
+            "<strong>Mínimo:</strong> Processador Dual Core, 4 GB de RAM e 25 GB de disco livre",
+            "<strong>Recomendado:</strong> Intel Core i3 (5ª Geração) ou superior, 8 GB de RAM e 25 GB de disco livre",
+            "<strong>Versão Web:</strong> Navegador moderno e conexão à internet"
         ],
         "button": {
             "pt": "Windows (Português)",
