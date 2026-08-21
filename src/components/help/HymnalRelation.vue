@@ -50,22 +50,32 @@ export default {
 <style scoped>
 .nav-tabs {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
 }
 .nav-link {
   cursor: pointer;
-  border: 0;
-  font-weight: bold;
-  font-size: 13px;
-  color: #6a7080;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #94a3b8;
+  padding: 8px 18px;
+  transition: all 0.25s ease;
+  background: rgba(255, 255, 255, 0.04);
 }
 .nav-link:hover {
-  border-bottom: 3px solid #f8c800;
-  color: #f8c800;
+  background: rgba(251, 191, 36, 0.1);
+  color: #FBBF24;
+  border-color: rgba(251, 191, 36, 0.3);
 }
 .nav-link.active {
-  border-bottom: 3px solid #f8c800;
-  color: #f8c800;
+  background: #FBBF24;
+  color: #0F172A;
+  border-color: #FBBF24;
+  font-weight: 700;
 }
 </style>

@@ -182,10 +182,13 @@
         "paypal_btn": "Donar con PayPal"
     },
     "help": {
-        "title": "Ayuda del Programa",
+        "title": "Centro de Ayuda",
+        "subtitle": "Aprende a utilizar todas las funciones de Louvor JA.",
+        "description": "Tutoriales, atajos, consejos de transmisión y guías paso a paso para ayudarte a ti y al equipo multimedia de tu iglesia.",
         "related": "Temas Relacionados",
-        "link_back": "Todos los elementos",
+        "link_back": "Volver a todos los temas",
         "link_more": "Saber más",
+        "articles_count": "temas",
         "lyric_css": "OH DIOS DE AMOR",
         "download_font": "Descargar fuente"
     },

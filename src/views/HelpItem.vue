@@ -1,51 +1,73 @@
 <template>
-  <section v-if="helpItem" class="intro-section spad set-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-title">
-            <h2>{{ helpItem.title }}</h2>
-          </div>
+  <section v-if="helpItem" class="help-item-section spad set-bg">
+    <div class="container text-white">
+      <!-- Back Navigation & Title -->
+      <div class="help-item-header mb-4">
+        <router-link :to="{ name: 'help' }" class="help-back-link mb-3">
+          <i class="fa fa-arrow-left"></i>
+          <span>{{ $t("help.link_back") }}</span>
+        </router-link>
+        <div class="section-title text-left mb-0">
+          <h2>{{ helpItem.title }}</h2>
         </div>
+      </div>
+
+      <div class="row">
+        <!-- Main Content -->
         <div class="col-lg-8 mb-5">
-          <div class="how-item mx-5">
+          <div class="help-article-card">
             <template v-for="(item, key) in helpItem.text" :key="key">
-              <h4 v-if="item.type == 'title'" class="m-0 p-0 mt-4">
+              <!-- Section Title -->
+              <h4 v-if="item.type == 'title'" class="help-article-subtitle">
                 {{ item.value }}
               </h4>
-              <ul v-else-if="item.type == 'list'" class="my-3">
+
+              <!-- List -->
+              <ul v-else-if="item.type == 'list'" class="help-article-list">
                 <li
                   v-for="(item_list, k_item) in item.value"
                   :key="k_item"
                   v-html="item_list"
                 />
               </ul>
-              <div v-else-if="item.type == 'code'" class="m-0 mt-3">
+
+              <!-- Code Block -->
+              <div v-else-if="item.type == 'code'" class="help-code-block">
                 <code v-html="item.value" />
               </div>
+
+              <!-- Custom Dynamic Component -->
               <component
                 v-else-if="item.type == 'component'"
                 :is="resolveComponent(item.value)"
-                class="m-0 mt-3"
+                class="help-custom-component my-4"
               />
-              <p v-else class="m-0">
+
+              <!-- Standard Paragraph -->
+              <p v-else class="help-article-p">
                 <span v-html="item.value" />
                 <router-link
                   v-if="item.link"
-                  class="ms-1"
+                  class="help-inline-link ml-2"
                   :to="{ name: 'help-item', params: { slug: item.link } }"
                 >
-                  <i class="fa fa-share"></i>
-                  {{ $t("help.link_more") }}
+                  <i class="fa fa-external-link"></i>
+                  <span>{{ $t("help.link_more") }}</span>
                 </router-link>
               </p>
             </template>
           </div>
         </div>
+
+        <!-- Sidebar -->
         <div class="col-lg-4 mb-5">
-          <div class="how-item m-3">
-            <h5 class="my-3">{{ $t("help.related") }}</h5>
-            <ul>
+          <div class="help-sidebar-card">
+            <div class="help-sidebar-header">
+              <i class="fa fa-bookmark-o text-warning"></i>
+              <h5>{{ $t("help.related") }}</h5>
+            </div>
+            
+            <ul class="help-sidebar-list">
               <template v-for="category in categories" :key="category">
                 <template
                   v-for="(item, url) in help[category].items"
@@ -54,20 +76,22 @@
                   <li v-if="url != slug">
                     <router-link
                       :to="{ name: 'help-item', params: { slug: url } }"
-                      style="font-size: 14px"
+                      class="help-sidebar-link"
                     >
-                      {{ item.title }}
+                      <i class="fa fa-angle-right"></i>
+                      <span>{{ item.title }}</span>
                     </router-link>
                   </li>
                 </template>
               </template>
-              <li class="mt-3">
-                <router-link :to="{ name: 'help' }" style="font-size: 14px">
-                  <i class="fa fa-reply-all"></i> &nbsp;
-                  {{ $t("help.link_back") }}
-                </router-link>
-              </li>
             </ul>
+
+            <div class="help-sidebar-footer mt-4 pt-3">
+              <router-link :to="{ name: 'help' }" class="btn-all-topics">
+                <i class="fa fa-th-large"></i>
+                <span>{{ $t("help.link_back") }}</span>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -141,10 +165,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-ul li {
-  color: #6a7080;
-}
-</style>
->
