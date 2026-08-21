@@ -2068,6 +2068,235 @@ Download Page Redesign (Phase 5)
     color: #38bdf8;
 }
 
+/* ----------------
+Contact Page Redesign
+ -------------------*/
+.contact-section {
+	background: radial-gradient(circle at center left, #1E293B 0%, #0B1120 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.text-muted-custom {
+    color: #94a3b8 !important;
+}
+
+.contact-card {
+    display: flex;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px;
+    color: white;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.contact-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+/* WhatsApp Theme */
+.contact-card-whatsapp::before {
+    background: #25D366;
+}
+.contact-card-whatsapp:hover {
+    border-color: rgba(37, 211, 102, 0.25);
+}
+.contact-card-whatsapp .contact-card-icon {
+    background: rgba(37, 211, 102, 0.15);
+    color: #25D366;
+    border: 1px solid rgba(37, 211, 102, 0.25);
+}
+
+/* Telegram Theme */
+.contact-card-telegram::before {
+    background: #0088cc;
+}
+.contact-card-telegram:hover {
+    border-color: rgba(0, 136, 204, 0.25);
+}
+.contact-card-telegram .contact-card-icon {
+    background: rgba(0, 136, 204, 0.15);
+    color: #0088cc;
+    border: 1px solid rgba(0, 136, 204, 0.25);
+}
+
+/* Email Theme */
+.contact-card-email::before {
+    background: #FBBF24;
+}
+.contact-card-email:hover {
+    border-color: rgba(251, 191, 36, 0.25);
+}
+.contact-card-email .contact-card-icon {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+    border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+/* Dev Theme */
+.contact-card-dev::before {
+    background: #a855f7;
+}
+.contact-card-dev:hover {
+    border-color: rgba(168, 85, 247, 0.25);
+}
+.contact-card-dev .contact-card-icon {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.contact-card-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-card-icon {
+    transform: scale(1.06);
+}
+
+.contact-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.contact-card-content h4 {
+    font-size: 19px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.contact-card-content p {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    min-height: 42px;
+}
+
+/* Specific Action Buttons */
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.contact-btn i {
+    font-size: 12px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.contact-btn:hover i.fa-arrow-right {
+    transform: translateX(4px);
+}
+
+/* WhatsApp Button */
+.contact-btn-whatsapp {
+    background: rgba(37, 211, 102, 0.12);
+    color: #25D366;
+    border-color: rgba(37, 211, 102, 0.28);
+}
+.contact-btn-whatsapp:hover {
+    background: #25D366;
+    color: #051a0d;
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Telegram Button */
+.contact-btn-telegram {
+    background: rgba(0, 136, 204, 0.12);
+    color: #38bdf8;
+    border-color: rgba(0, 136, 204, 0.28);
+}
+.contact-btn-telegram:hover {
+    background: #0088cc;
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(0, 136, 204, 0.35);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Email Button */
+.contact-btn-email {
+    background: rgba(251, 191, 36, 0.12);
+    color: #FBBF24;
+    border-color: rgba(251, 191, 36, 0.28);
+    word-break: break-all;
+}
+.contact-btn-email i {
+    margin-left: 0;
+    margin-right: 10px;
+    font-size: 13px;
+}
+.contact-btn-email:hover {
+    background: #FBBF24;
+    color: #0F172A;
+    box-shadow: 0 8px 22px rgba(251, 191, 36, 0.35);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Dev Button */
+.contact-btn-dev {
+    background: rgba(168, 85, 247, 0.12);
+    color: #c084fc;
+    border-color: rgba(168, 85, 247, 0.28);
+}
+.contact-btn-dev:hover {
+    background: #a855f7;
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(168, 85, 247, 0.35);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
 /* Mobile Menu Native (Phase 4) */
 .mobile-menu-btn {
     display: none;

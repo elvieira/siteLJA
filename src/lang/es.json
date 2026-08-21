@@ -145,14 +145,22 @@
         }
     },
     "contact": {
-        "title": "Contacto",
-        "text": [
-            "Si necesita soporte, puede unirse a nuestros grupos de",
-            "o",
-            "O puede enviar un correo electrónico a:"
-        ],
-        "whatsapp": "WhatsApp",
-        "telegram": "Telegram"
+        "title": "Ponte en Contacto",
+        "subtitle": "Estamos listos para ayudarte a ti.",
+        "description": "Haz preguntas, envía sugerencias, informa problemas o participa directamente en nuestra comunidad oficial de operadores y voluntarios.",
+        "community_title": "Comunidad y Soporte",
+        "email_title": "Soporte por Correo",
+        "email_desc": "¿Prefieres enviarnos un mensaje directo? Responderemos lo antes posible.",
+        "whatsapp_title": "Grupo de WhatsApp",
+        "whatsapp_desc": "Chatea y resuelve dudas en tiempo real con otros operadores.",
+        "telegram_title": "Canal de Telegram",
+        "telegram_desc": "Sigue actualizaciones, consejos y novedades de primera mano.",
+        "dev_title": "¿Eres Desarrollador?",
+        "dev_desc": "Únete a nuestro equipo voluntario de desarrolladores y ayuda a construir el futuro del software.",
+        "btn_whatsapp": "Unirse a WhatsApp",
+        "btn_telegram": "Unirse a Telegram",
+        "btn_dev": "Grupo de Desarrolladores",
+        "btn_email": "Enviar Correo"
     },
     "dev": {
         "title": "Desarrollador",
