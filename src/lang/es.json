@@ -125,11 +125,23 @@
         }
     },
     "download": {
-        "title": "Download",
+        "title": "Descargar",
+        "subtitle": "Transforma la proyección de tus cultos.",
+        "description": "Louvor JA es un software robusto para administrar música, videos y letras en los programas de tu iglesia o grupo pequeño. Elige tu versión a continuación.",
+        "requirements_title": "Requisitos del Sistema:",
+        "requirements": [
+            "Sistema Operativo: Windows 10 o superior",
+            "Memoria RAM: Mínimo 4GB (Recomendado 8GB)",
+            "Espacio en disco: 2GB libres",
+            "Conexión a internet (Solo versión Web)"
+        ],
         "button": {
-            "pt": "Português",
-            "es": "Español",
-            "app": "Versión Web"
+            "pt": "Windows (Português)",
+            "es": "Windows (Español)",
+            "app": "Acceder Versión Web",
+            "pt_desc": "Instalador completo del software.",
+            "es_desc": "Instalador completo del software.",
+            "app_desc": "Accede directamente desde el navegador."
         }
     },
     "contact": {

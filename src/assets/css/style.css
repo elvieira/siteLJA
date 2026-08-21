@@ -1933,6 +1933,120 @@ Responsive
 	}
 }
 
+/* ----------------
+Download Page Redesign (Phase 5)
+ -------------------*/
+.download-page {
+	background: radial-gradient(circle at center right, #1E293B 0%, #0B1120 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.sys-req {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.sys-req h5 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sys-req .req-item {
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+.dl-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dl-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.dl-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #FBBF24;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.dl-card:hover::before {
+    opacity: 1;
+}
+
+.dl-card.dl-web::before {
+    background: #38bdf8;
+}
+.dl-card.dl-web:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.dl-icon {
+    font-size: 40px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FBBF24;
+}
+.dl-card.dl-web .dl-icon {
+    color: #38bdf8;
+}
+
+.dl-info {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.dl-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.dl-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.dl-action {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dl-card:hover .dl-action {
+    color: #FBBF24;
+    transform: scale(1.1);
+}
+.dl-card.dl-web:hover .dl-action {
+    color: #38bdf8;
+}
+
 /* Mobile Menu Native (Phase 4) */
 .mobile-menu-btn {
     display: none;

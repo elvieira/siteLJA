@@ -1,33 +1,89 @@
 <template>
-  <section class="intro-section spad">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-title">
+  <section class="download-page spad set-bg">
+    <div class="container text-white">
+      <div class="row align-items-center">
+        <!-- Left Column: Info -->
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="section-title text-left">
             <h2>{{ $t("download.title") }}</h2>
           </div>
+          <h4 class="mb-4 text-warning">{{ $t("download.subtitle") }}</h4>
+          <p class="mb-5 lead">{{ $t("download.description") }}</p>
 
-          <a
-            href="https://api.louvorja.com.br/pt/download"
-            target="_blank"
-            class="site-btn m-2"
-          >
-            {{ $t("download.button.pt") }}
-          </a>
-          <a
-            href="https://api.louvorja.com.br/es/download"
-            target="_blank"
-            class="site-btn m-2"
-          >
-            {{ $t("download.button.es") }}
-          </a>
-          <a
-            href="https://app.louvorja.com.br/"
-            target="_blank"
-            class="site-btn sb-c2 m-2"
-          >
-            {{ $t("download.button.app") }}
-          </a>
+          <div class="sys-req">
+            <h5>
+              <i class="fa fa-info-circle text-warning mr-2"></i>
+              {{ $t("download.requirements_title") }}
+            </h5>
+            <ul class="list-unstyled mt-4">
+              <li
+                v-for="(req, index) in $tm('download.requirements')"
+                :key="index"
+                class="mb-3 req-item"
+              >
+                <i class="fa fa-check text-success mr-3"></i> {{ req }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Download Cards -->
+        <div class="col-lg-6 pl-lg-5">
+          <div class="download-cards">
+            <!-- Windows PT -->
+            <a
+              href="https://api.louvorja.com.br/pt/download"
+              target="_blank"
+              class="dl-card"
+            >
+              <div class="dl-icon">
+                <i class="fa fa-windows"></i>
+              </div>
+              <div class="dl-info">
+                <h4>{{ $t("download.button.pt") }}</h4>
+                <p>{{ $t("download.button.pt_desc") }}</p>
+              </div>
+              <div class="dl-action">
+                <i class="fa fa-download"></i>
+              </div>
+            </a>
+
+            <!-- Windows ES -->
+            <a
+              href="https://api.louvorja.com.br/es/download"
+              target="_blank"
+              class="dl-card"
+            >
+              <div class="dl-icon">
+                <i class="fa fa-windows"></i>
+              </div>
+              <div class="dl-info">
+                <h4>{{ $t("download.button.es") }}</h4>
+                <p>{{ $t("download.button.es_desc") }}</p>
+              </div>
+              <div class="dl-action">
+                <i class="fa fa-download"></i>
+              </div>
+            </a>
+
+            <!-- Web App -->
+            <a
+              href="https://app.louvorja.com.br/"
+              target="_blank"
+              class="dl-card dl-web"
+            >
+              <div class="dl-icon">
+                <i class="fa fa-globe"></i>
+              </div>
+              <div class="dl-info">
+                <h4>{{ $t("download.button.app") }}</h4>
+                <p>{{ $t("download.button.app_desc") }}</p>
+              </div>
+              <div class="dl-action">
+                <i class="fa fa-external-link"></i>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
