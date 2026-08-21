@@ -488,6 +488,8 @@ How section
 	border-radius: 20px;
 	background: rgba(255, 255, 255, 0.03);
 	border: 1px solid rgba(255, 255, 255, 0.05);
+	margin-bottom: 30px;
+	height: calc(100% - 30px);
 }
 
 .how-item:hover {
@@ -535,7 +537,8 @@ Concept section
 .concept-item {
 	text-align: center;
 	padding-top: 35px;
-	height: 100%;
+	height: calc(100% - 30px);
+	margin-bottom: 30px;
 }
 
 .concept-item:hover img {
