@@ -6,7 +6,7 @@
         <Slide v-for="slide in 3" :key="slide">
           <div class="hs-item">
             <div class="container">
-              <div v-if="slide == 1" class="row">
+              <div v-if="slide == 1" class="row align-items-center">
                 <div class="col-lg-6">
                   <div class="hs-text">
                     <h2>
@@ -41,7 +41,7 @@
                   </div>
                 </div>
               </div>
-              <div v-else-if="slide == 2" class="row">
+              <div v-else-if="slide == 2" class="row align-items-center">
                 <div class="col-lg-6">
                   <div class="hs-text">
                     <h2>
@@ -73,7 +73,7 @@
                   </div>
                 </div>
               </div>
-              <div v-else class="row">
+              <div v-else class="row align-items-center">
                 <div class="col-lg-12">
                   <div class="hs-text">
                     <h2>
