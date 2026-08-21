@@ -193,7 +193,12 @@
         "download_font": "Descargar fuente"
     },
     "faq": {
-        "title": "Preguntas Frecuentes"
+        "title": "Preguntas Frecuentes",
+        "subtitle": "Respuestas rápidas a las dudas más comunes.",
+        "description": "Reunimos aquí las principales preguntas sobre el uso, configuración, transmisión y funciones del software Louvor JA. Haz clic en cualquier pregunta para leer la guía completa.",
+        "help_cta_title": "¿No encontraste lo que buscabas?",
+        "help_cta_desc": "Explora todas nuestras guías paso a paso, atajos y tutoriales detallados en el Centro de Ayuda.",
+        "help_cta_btn": "Ir al Centro de Ayuda"
     },
     "notfound": {
         "title": "¡Página no encontrada!"
