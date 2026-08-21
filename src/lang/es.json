@@ -5,8 +5,9 @@
     },
     "menu": {
         "home": "Inicio",
-        "about": "El Programa",
+        "about": "Sobre",
         "download": "Descargar",
+        "help": "Ayuda",
         "contact": "Contacto",
         "donation": "Donación"
     },

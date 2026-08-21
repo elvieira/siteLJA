@@ -29,6 +29,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'help' }" @click="isMobileMenuOpen = false">
+          {{ $t("menu.help") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'contact' }" @click="isMobileMenuOpen = false">
           {{ $t("menu.contact") }}
         </router-link>
