@@ -168,8 +168,18 @@
         "link": "Acceder al grupo"
     },
     "donation": {
-        "title": "Donación",
-        "text": "El software LouvorJA es gratuito. Todo el servicio de desarrollo es voluntario. Sin embargo, hay costos para mantenerlo funcionando. Si desea hacer una contribución, puede hacerlo a través de los siguientes medios:"
+        "title": "Apoya el Proyecto",
+        "subtitle": "Ayuda a mantener Louvor JA gratuito, actualizado y en línea.",
+        "description": "Louvor JA es desarrollado y mantenido por voluntarios con el propósito de bendecir ministerios de música en iglesias y grupos. Tus contribuciones nos ayudan a cubrir costos de servidores, bases de datos y continuas actualizaciones.",
+        "pix_title": "Donación vía PIX",
+        "pix_subtitle": "Clave Correo Electrónico (Brasil)",
+        "pix_desc": "Abre la app de tu banco, selecciona la opción PIX y utiliza la siguiente clave:",
+        "pix_copy": "Copiar Clave PIX",
+        "pix_copied": "¡Clave Copiada!",
+        "paypal_title": "Donación vía PayPal",
+        "paypal_subtitle": "Tarjeta de Crédito o Internacional",
+        "paypal_desc": "Contribuye de forma segura a través de tu cuenta PayPal o tarjeta de crédito desde cualquier lugar del mundo.",
+        "paypal_btn": "Donar con PayPal"
     },
     "help": {
         "title": "Ayuda del Programa",

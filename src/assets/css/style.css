@@ -2297,6 +2297,243 @@ Contact Page Redesign
     text-decoration: none;
 }
 
+/* ----------------
+Donation Page Redesign
+ -------------------*/
+.donation-section {
+	background: radial-gradient(circle at center right, #1E293B 0%, #0B1120 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.donation-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px;
+    color: white;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.donation-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    transform: translateY(-4px);
+}
+
+.donation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.donation-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Themes */
+.donation-card-pix::before {
+    background: #00BDAE;
+}
+.donation-card-pix:hover {
+    border-color: rgba(0, 189, 174, 0.3);
+}
+
+.donation-card-paypal::before {
+    background: #0079C1;
+}
+.donation-card-paypal:hover {
+    border-color: rgba(0, 121, 193, 0.3);
+}
+
+.donation-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.donation-logo-badge {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 8px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    height: 56px;
+}
+
+.donation-img {
+    height: 34px;
+    max-width: 110px;
+    object-fit: contain;
+}
+
+.donation-country-badge {
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.donation-country-badge i {
+    font-size: 13px;
+}
+
+.pix-badge {
+    background: rgba(0, 189, 174, 0.15);
+    color: #00BDAE;
+    border: 1px solid rgba(0, 189, 174, 0.3);
+}
+
+.paypal-badge {
+    background: rgba(0, 121, 193, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(0, 121, 193, 0.3);
+}
+
+.donation-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.donation-card-body h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.donation-sub {
+    font-size: 14px;
+    color: #FBBF24;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.donation-desc {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    min-height: 48px;
+}
+
+/* PIX Key Box */
+.pix-key-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pix-key-display {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.pix-key-display i {
+    font-size: 15px;
+}
+
+.pix-key-display code {
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    word-break: break-all;
+}
+
+.btn-copy-pix {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(0, 189, 174, 0.15);
+    color: #00BDAE;
+    border: 1px solid rgba(0, 189, 174, 0.35);
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+}
+
+.btn-copy-pix:hover {
+    background: #00BDAE;
+    color: #04211e;
+    box-shadow: 0 8px 24px rgba(0, 189, 174, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-copy-pix.copied {
+    background: #10b981;
+    color: #ffffff;
+    border-color: #10b981;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+
+/* PayPal Button */
+.paypal-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-donate-paypal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #0079C1;
+    color: #ffffff;
+    border: 1px solid #0079C1;
+    border-radius: 14px;
+    padding: 13px 24px;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 121, 193, 0.3);
+}
+
+.btn-donate-paypal:hover {
+    background: #005ea6;
+    border-color: #005ea6;
+    color: #ffffff;
+    box-shadow: 0 10px 28px rgba(0, 121, 193, 0.45);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
 /* Mobile Menu Native (Phase 4) */
 .mobile-menu-btn {
     display: none;
