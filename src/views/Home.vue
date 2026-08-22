@@ -56,6 +56,50 @@
     </div>
   </section>
 
+  <!-- Community Highlight Section -->
+  <section class="community-highlight-section spad set-bg">
+    <div class="container text-white">
+      <div class="row align-items-center">
+        <!-- Left: Info & Call to Action -->
+        <div class="col-lg-7 mb-5 mb-lg-0 pr-lg-4">
+          <div class="section-title text-left mb-3">
+            <h2>{{ $t("community.title") }}</h2>
+          </div>
+          <h4 class="mb-3 text-warning">{{ $t("community.subtitle") }}</h4>
+          <p class="lead text-muted-custom mb-4">{{ $t("community.description") }}</p>
+          <router-link :to="{ name: 'community' }" class="site-btn">
+            {{ $t("carousel.slide3.button1") }}
+          </router-link>
+        </div>
+
+        <!-- Right: Modern Showcase Card -->
+        <div class="col-lg-5">
+          <div class="faq-sidebar-cta p-4 text-center">
+            <div class="d-flex justify-content-center align-items-center gap-3 mb-3" style="display: flex; gap: 20px; justify-content: center; font-size: 32px; color: #FBBF24;">
+              <i class="fa fa-linux"></i>
+              <i class="fa fa-apple"></i>
+              <i class="fa fa-windows"></i>
+            </div>
+            <div class="version-logo justify-content-center mb-2" style="justify-content: center;">
+              <div class="text-logo p-0" style="font-size: 20px;">
+                {{ $t("logo.text-normal") }}
+                <span>JA</span>
+              </div>
+            </div>
+            <h6 class="text-warning mb-3 font-weight-bold">Linux • macOS • Windows</h6>
+            <p class="text-muted-custom mb-4" style="font-size: 14px; line-height: 1.6;">
+              {{ $t("community.violin_desc") }}
+            </p>
+            <router-link :to="{ name: 'community' }" class="btn-all-topics">
+              <span>{{ $t("carousel.slide3.button1") }}</span>
+              <i class="fa fa-arrow-right"></i>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="concept-section spad">
     <div class="container">
       <div class="row">

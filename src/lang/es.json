@@ -7,6 +7,7 @@
         "home": "Inicio",
         "about": "Sobre",
         "download": "Descargar",
+        "community": "Comunidad",
         "help": "Ayuda",
         "contact": "Contacto",
         "donation": "Donación"
@@ -31,6 +32,7 @@
             "title": "Enlaces",
             "list": {
                 "app": "Versión Web",
+                "community": "Comunidad",
                 "help": "Ayuda",
                 "faq": "Preguntas Frecuentes",
                 "drive": "Drive",
@@ -57,6 +59,14 @@
             "button1": "Acceder Ahora"
         },
         "slide3": {
+            "title": [
+                "Multiplataforma",
+                "Desktop: Windows, Linux y Mac"
+            ],
+            "text": "Conozca las nuevas versiones de escritorio creadas por la comunidad para llevar Louvor JA de forma nativa a Linux, macOS y Windows.",
+            "button1": "Conocer Versiones"
+        },
+        "slide4": {
             "title": [
                 "Totalmente",
                 "Gratis."
@@ -140,10 +150,78 @@
             "pt": "Windows (Português)",
             "es": "Windows (Español)",
             "app": "Acceder Versión Web",
+            "community": "Otras Opciones (Comunidad)",
             "pt_desc": "Instalador completo del software.",
             "es_desc": "Instalador completo del software.",
-            "app_desc": "Accede directamente desde el navegador."
+            "app_desc": "Accede directamente desde el navegador.",
+            "community_desc": "Versiones multiplataforma para Windows, Linux y macOS."
         }
+    },
+    "community": {
+        "title": "Versiones de la Comunidad",
+        "subtitle": "Ediciones multiplataforma de Louvor JA para Desktop (Windows, Linux y Mac).",
+        "description": "Proyectos de código abierto desarrollados voluntariamente por la comunidad, cada uno con enfoque técnico y nombre en clave musical específico.",
+        "badge_dev": "En Desarrollo",
+        "badge_beta": "Versión Beta",
+        "badge_alpha": "Versión Alpha",
+        "badge_stable": "Estable",
+        "platforms_title": "Plataformas Compatibles:",
+        "btn_repo": "Ver Repositorio y Descarga",
+        "violin_sub": "Tauri + Rust • Ultraligero y Rápido",
+        "violin_desc": "Construido sobre el motor Tauri para un rendimiento ultra alto, consumo mínimo de memoria RAM e inicio instantáneo.",
+        "piano_sub": "Electron + Vue • Proyección Avanzada",
+        "piano_desc": "Enfoque en soporte para múltiples monitores, pantalla de retorno configurable para equipos de alabanza y editor de escenario dinámico.",
+        "flute_sub": "Go + Webview • Minimalista y Compacto",
+        "flute_desc": "Edición ultra compacta y optimizada para computadoras con hardware modesto o computadoras portátiles antiguas de iglesias.",
+        "sax_sub": ".NET MAUI • Gráficos y Efectos",
+        "sax_desc": "Aceleración por GPU con soporte nativo para efectos visuales fluidos, transiciones de video y renderizado de alta fidelidad.",
+        "cello_sub": "OBS Studio & NDI • Enfoque en Transmisión",
+        "cello_desc": "Integración nativa con OBS Studio, vMix y NDI a través de WebSocket para enviar subtítulos y superposiciones transparentes en vivo.",
+        "harp_sub": "Cloud Sync & Offline-First • Nube e Iglesia",
+        "harp_desc": "Sincronización en la nube de listas e himnos con funcionamiento 100% sin conexión garantizado durante los cultos y eventos."
+    },
+    "community_details": {
+        "back_btn": "Volver a Versiones de la Comunidad",
+        "tag_electron": "Ejecutable Electron • Multiplataforma",
+        "tag_standalone": "Aplicación de Escritorio Nativa",
+        "overview_title": "Sobre esta Versión",
+        "overview_desc": "Esta edición fue desarrollada utilizando la tecnología Electron, empaquetando toda la experiencia de Louvor JA en una aplicación de escritorio rápida, liviana e independiente para Linux, macOS y Windows. Cuenta con soporte completo para base de datos local (offline), aceleración por hardware y control total de proyección en múltiples monitores.",
+        "features_title": "Principales Recursos y Ventajas",
+        "feature1_title": "Ejecución 100% Sin Conexión",
+        "feature1_desc": "Todos los himnos, biblias y archivos multimedia guardados localmente en la máquina, permitiendo un funcionamiento continuo sin interrupciones incluso sin internet.",
+        "feature2_title": "Multi-Pantalla y Retorno",
+        "feature2_desc": "Proyección independiente para el público, pantalla de control detallada para el operador y monitor de retorno para el escenario y grupo de alabanza.",
+        "feature3_title": "Atajos y Búsqueda Rápida",
+        "feature3_desc": "Navegación por teclado ultra rápida para localizar himnos por número o título y versículos bíblicos en segundos.",
+        "feature4_title": "Instaladores Nativos",
+        "feature4_desc": "Paquetes dedicados (.AppImage y .deb para Linux, .dmg universal para macOS e instalador .exe para Windows).",
+        "downloads_title": "Descargas Disponibles por Sistema",
+        "downloads_subtitle": "Elija el paquete correspondiente a su sistema operativo:",
+        "dl_linux_title": "Linux (64-bit)",
+        "dl_linux_desc": "Ubuntu, Debian, Fedora, Arch, Linux Mint y derivados.",
+        "dl_linux_appimage": "Descargar .AppImage (Universal)",
+        "dl_linux_deb": "Descargar paquete .deb",
+        "dl_mac_title": "macOS (Apple Silicon e Intel)",
+        "dl_mac_desc": "Compatible con macOS 10.15 Catalina o superior.",
+        "dl_mac_dmg": "Descargar instalador .dmg",
+        "dl_win_title": "Windows (64-bit)",
+        "dl_win_desc": "Compatible con Windows 10 y Windows 11.",
+        "dl_win_exe": "Descargar instalador .exe",
+        "dl_win_portable": "Descargar Versión Portátil (.zip)",
+        "requirements_title": "Requisitos del Sistema",
+        "req_linux": "Linux: Kernel 5.4+, 4 GB RAM, 500 MB de disco libre",
+        "req_mac": "macOS: 10.15 Catalina+, Apple Silicon (M1/M2/M3/M4) o Intel, 4 GB RAM",
+        "req_win": "Windows: 10/11 64-bit, procesador Dual Core+, 4 GB RAM",
+        "changelog_title": "Historial de Lanzamientos y Actualizaciones",
+        "v1_title": "Versión 1.0.0 (Beta)",
+        "v1_date": "Lanzamiento Reciente",
+        "v1_item1": "Soporte mejorado para distribuciones Linux mediante AppImage universal y .deb.",
+        "v1_item2": "Empaquetado universal para macOS con soporte nativo para chips Apple Silicon y procesadores Intel.",
+        "v1_item3": "Aceleración gráfica para transiciones de diapositivas más fluidas en pantallas 4K.",
+        "v09_title": "Versión 0.9.5 (Alpha)",
+        "v09_date": "Lanzamiento Anterior",
+        "v09_item1": "Primera compilación multiplataforma con base de datos integrada.",
+        "v09_item2": "Soporte de proyección en monitor secundario a través de API de pantallas."
     },
     "contact": {
         "title": "Ponte en Contacto",

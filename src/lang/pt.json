@@ -7,6 +7,7 @@
         "home": "Início",
         "about": "Sobre",
         "download": "Download",
+        "community": "Comunidade",
         "help": "Ajuda",
         "contact": "Contato",
         "donation": "Doação"
@@ -31,6 +32,7 @@
             "title": "Links",
             "list": {
                 "app": "Versão Web",
+                "community": "Comunidade",
                 "help": "Ajuda",
                 "faq": "Perguntas Frequentes",
                 "drive": "Drive",
@@ -57,6 +59,14 @@
             "button1": "Acesse Agora"
         },
         "slide3": {
+            "title": [
+                "Multiplataforma",
+                "Desktop: Windows, Linux e Mac"
+            ],
+            "text": "Conheça as novas versões de desktop criadas pela comunidade para levar o Louvor JA nativamente ao Linux, macOS e Windows.",
+            "button1": "Conhecer Versões"
+        },
+        "slide4": {
             "title": [
                 "Totalmente",
                 "Grátis."
@@ -140,10 +150,78 @@
             "pt": "Windows (Português)",
             "es": "Windows (Español)",
             "app": "Acessar Versão Web",
+            "community": "Outras Opções (Comunidade)",
             "pt_desc": "Instalador completo do software.",
             "es_desc": "Instalador completo del software.",
-            "app_desc": "Acesse diretamente do navegador."
+            "app_desc": "Acesse diretamente do navegador.",
+            "community_desc": "Versões multiplataforma para Windows, Linux e macOS."
         }
+    },
+    "community": {
+        "title": "Versões da Comunidade",
+        "subtitle": "Edições multiplataforma do Louvor JA para Desktop (Windows, Linux e Mac).",
+        "description": "Projetos de código aberto desenvolvidos voluntariamente pela comunidade, cada um com foco técnico e codinome musical específico.",
+        "badge_dev": "Em Desenvolvimento",
+        "badge_beta": "Versão Beta",
+        "badge_alpha": "Versão Alpha",
+        "badge_stable": "Estável",
+        "platforms_title": "Plataformas Suportadas:",
+        "btn_repo": "Ver Repositório & Download",
+        "violin_sub": "Tauri + Rust • Ultraleve & Rápido",
+        "violin_desc": "Construído sobre o motor Tauri para altíssima performance, consumo mínimo de memória RAM e inicialização instantânea.",
+        "piano_sub": "Electron + Vue • Projeção Avançada",
+        "piano_desc": "Foco em suporte a múltiplos monitores, tela de retorno configurável para equipes de louvor e editor de palco dinâmico.",
+        "flute_sub": "Go + Webview • Minimalista & Compacto",
+        "flute_desc": "Edição ultra compacta e otimizada para computadores com hardware modesto ou notebooks antigos de igrejas.",
+        "sax_sub": ".NET MAUI • Gráficos & Efeitos",
+        "sax_desc": "Aceleração por GPU com suporte nativo a efeitos visuais fluidos, transições de vídeo e renderização de alta fidelidade.",
+        "cello_sub": "OBS Studio & NDI • Foco em Transmissão",
+        "cello_desc": "Integração nativa com OBS Studio, vMix e NDI via WebSocket para envio de letreiros e overlays transparentes ao vivo.",
+        "harp_sub": "Cloud Sync & Offline-First • Nuvem & Igreja",
+        "harp_desc": "Sincronização em nuvem de escalas e hinos com funcionamento 100% offline garantido durante os cultos e eventos."
+    },
+    "community_details": {
+        "back_btn": "Voltar para Versões da Comunidade",
+        "tag_electron": "Executável Electron • Multiplataforma",
+        "tag_standalone": "Aplicativo Desktop Nativo",
+        "overview_title": "Sobre esta Versão",
+        "overview_desc": "Esta edição foi desenvolvida utilizando a tecnologia Electron, empacotando toda a experiência do Louvor JA em um aplicativo desktop rápido, leve e independente para Linux, macOS e Windows. Conta com suporte completo a banco de dados local (offline), renderização acelerada por hardware e controle total de projeção em múltiplos monitores.",
+        "features_title": "Principais Recursos & Vantagens",
+        "feature1_title": "Execução 100% Offline",
+        "feature1_desc": "Todos os hinos, bíblias e mídias salvos localmente na máquina, permitindo funcionamento contínuo e sem interrupções mesmo sem sinal de internet.",
+        "feature2_title": "Multi-Telas & Retorno",
+        "feature2_desc": "Projeção independente para o público, tela de controle detalhada para o operador e monitor de retorno para palco e equipe de louvor.",
+        "feature3_title": "Atalhos & Busca Rápida",
+        "feature3_desc": "Navegação por teclado ultra rápida para localizar hinos por número ou título e versículos bíblicos em segundos.",
+        "feature4_title": "Instaladores Nativos",
+        "feature4_desc": "Pacotes dedicados (.AppImage e .deb para Linux, .dmg universal para macOS e instalador .exe para Windows).",
+        "downloads_title": "Downloads Disponíveis por Sistema",
+        "downloads_subtitle": "Escolha o pacote correspondente ao seu sistema operacional:",
+        "dl_linux_title": "Linux (64-bit)",
+        "dl_linux_desc": "Ubuntu, Debian, Fedora, Arch, Linux Mint e derivadas.",
+        "dl_linux_appimage": "Baixar .AppImage (Universal)",
+        "dl_linux_deb": "Baixar pacote .deb",
+        "dl_mac_title": "macOS (Apple Silicon & Intel)",
+        "dl_mac_desc": "Compatível com macOS 10.15 Catalina ou superior.",
+        "dl_mac_dmg": "Baixar instalador .dmg",
+        "dl_win_title": "Windows (64-bit)",
+        "dl_win_desc": "Compatível com Windows 10 e Windows 11.",
+        "dl_win_exe": "Baixar instalador .exe",
+        "dl_win_portable": "Baixar Versão Portátil (.zip)",
+        "requirements_title": "Requisitos do Sistema",
+        "req_linux": "Linux: Kernel 5.4+, 4 GB RAM, 500 MB de disco livre",
+        "req_mac": "macOS: 10.15 Catalina+, Apple Silicon (M1/M2/M3/M4) ou Intel, 4 GB RAM",
+        "req_win": "Windows: 10/11 64-bit, processador Dual Core+, 4 GB RAM",
+        "changelog_title": "Histórico de Lançamentos & Atualizações",
+        "v1_title": "Versão 1.0.0 (Beta)",
+        "v1_date": "Lançamento Recente",
+        "v1_item1": "Suporte aprimorado para distribuições Linux via AppImage universal e .deb.",
+        "v1_item2": "Empacotamento Universal para macOS com suporte nativo a chips Apple Silicon e processadores Intel.",
+        "v1_item3": "Aceleração gráfica para transições de slides mais suaves em monitores 4K.",
+        "v09_title": "Versão 0.9.5 (Alpha)",
+        "v09_date": "Lançamento Anterior",
+        "v09_item1": "Primeira compilação multiplataforma com banco de dados embutido.",
+        "v09_item2": "Suporte a projeção em monitor secundário via API de telas."
     },
     "contact": {
         "title": "Entre em Contato",

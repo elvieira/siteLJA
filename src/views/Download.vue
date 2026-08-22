@@ -83,6 +83,23 @@
                 <i class="fa fa-external-link"></i>
               </div>
             </a>
+
+            <!-- Other Options / Community Multiplatform -->
+            <router-link
+              :to="{ name: 'community' }"
+              class="dl-card dl-community"
+            >
+              <div class="dl-icon">
+                <i class="fa fa-cubes"></i>
+              </div>
+              <div class="dl-info">
+                <h4>{{ $t("download.button.community") }}</h4>
+                <p>{{ $t("download.button.community_desc") }}</p>
+              </div>
+              <div class="dl-action">
+                <i class="fa fa-arrow-right"></i>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>
