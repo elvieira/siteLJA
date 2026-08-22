@@ -94,7 +94,7 @@
                 <div class="col-lg-6">
                   <div class="hr-img">
                     <img
-                      src="@/assets/imgs/003-community.jpg"
+                      src="@/assets/imgs/community-flute.jpg"
                       alt="Louvor JA Multiplataforma"
                       class="img-fluid rounded-4 shadow-lg"
                       style="border-radius: 20px; max-height: 420px; object-fit: cover;"

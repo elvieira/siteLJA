@@ -5,8 +5,8 @@
     },
     "menu": {
         "home": "Inicio",
-        "about": "Sobre",
-        "download": "Descargar",
+        "about": "Acerca de",
+        "download": "Descarga",
         "community": "Comunidad",
         "help": "Ayuda",
         "contact": "Contacto",
@@ -19,7 +19,7 @@
             "Versión de la Base de Datos"
         ],
         "partners": {
-            "title": "Associados",
+            "title": "Socios",
             "list": {
                 "ligaosom": "Blog Liga o Sonido",
                 "iasdbaixogandu": "IASD Baixo Gandu",
@@ -46,24 +46,24 @@
                 "Canciones",
                 "para proyección."
             ],
-            "text": "Proyecta canciones para tu iglesia, evento o grupo pequeño. Utiliza las canciones del programa, o crea tus propias canciones.",
-            "button1": "Descargar Ahora",
-            "button2": "Acceder sin descargar"
+            "text": "Proyecte canciones para su iglesia, evento o grupo pequeño. Utilice las canciones del programa o cree sus propias canciones.",
+            "button1": "Descárguelo Ahora",
+            "button2": "Acceda sin descargar"
         },
         "slide2": {
             "title": [
-                "Escucha",
+                "Escuche",
                 "directamente de internet."
             ],
-            "text": "¿No quieres descargar el programa? Si tienes una buena conexión a internet, puedes disfrutar de la versión web, sin necesidad de descargar nada.",
-            "button1": "Acceder Ahora"
+            "text": "¿No quiere descargar el programa? Si tiene una buena conexión a internet, puede disfrutar de la versión web sin necesidad de descargar nada.",
+            "button1": "Acceda Ahora"
         },
         "slide3": {
             "title": [
                 "Multiplataforma",
                 "Desktop: Windows, Linux y Mac"
             ],
-            "text": "Conozca las nuevas versiones de escritorio creadas por la comunidad para llevar Louvor JA de forma nativa a Linux, macOS y Windows.",
+            "text": "Conozca las nuevas versiones de escritorio creadas por la comunidad para llevar Loor JA de forma nativa a Linux, macOS y Windows.",
             "button1": "Conocer Versiones"
         },
         "slide4": {
@@ -71,34 +71,34 @@
                 "Totalmente",
                 "Gratis."
             ],
-            "text": "El uso del programa es totalmente gratuito. Pero siéntete libre de enviar una donación para ayudar con los costos de operación.",
-            "button1": "Hacer una Donación"
+            "text": "El uso del programa es totalmente gratis. Pero siéntase libre de enviar una donación para ayudar con los costos operativos.",
+            "button1": "Haga una Donación"
         }
     },
     "home": {
         "card1": {
-            "title": "Cientos de canciones para tus cultos",
-            "text": "Más de mil canciones para proyectar y cantar. La mayoría cuenta con playbacks. El operador tiene total control sobre los slides. ¿No quieres proyectar? No hay problema. Es posible ejecutar solo el audio de la canción. El programa aún cuenta con proyección en 3 pantallas: Pantalla del público, pantalla del operador y pantalla de retorno.",
-            "button": "Saber más"
+            "title": "Cientos de canciones para sus cultos",
+            "text": "Más de mil canciones para proyectar y cantar. La mayoría cuenta con playbacks. El operador tiene control total sobre las diapositivas. ¿No quiere proyectar? No hay problema. Es posible reproducir solo el audio. El programa también cuenta con proyección en 3 pantallas: pantalla del público, pantalla del operador y pantalla de retorno.",
+            "button": "Conozca más"
         },
         "card2": {
             "title": "Recursos",
             "col1": {
                 "title": "Biblia",
-                "text": "Varias versiones de la biblia. Encuentra de forma fácil y rápida el pasaje bíblico y proyecta. Fondo, colores y letras totalmente personalizables. Proyecta versos aislados o alternados."
+                "text": "Varias versiones de la biblia. Encuentre de forma fácil y rápida el pasaje bíblico y proyéctelo. Fondo, colores y fuentes totalmente personalizables. Proyecte versículos individuales o alternados."
             },
             "col2": {
                 "title": "Liturgia",
-                "text": "Arma de manera fácil y práctica la programación del culto. Define los archivos que se ejecutarán en cada momento, y deja mensajes para los operadores sobre la programación."
+                "text": "Organice de manera fácil y práctica la programación del culto. Defina los archivos que se ejecutarán en cada momento y deje notas para los operadores sobre la programación."
             },
             "col3": {
                 "title": "Y mucho más...",
-                "text": "El programa aún cuenta con una gama de recursos, como sorteador, cronómetro de culto, reloj, y además, editor de diapositivas, ¡para crear tus propias diapositivas!"
+                "text": "El programa cuenta además con una amplia gama de recursos, como sorteador, cronómetro de culto, reloj y también un editor de diapositivas para crear sus propias presentaciones."
             }
         },
         "card3": {
             "title": "Usos principales",
-            "text": "El programa puede ser utilizado en diversos lugares y ocasiones, como iglesias, grupos pequeños, campamentos, cultos al atardecer, eventos sociales, entre otros.\nProyecta las canciones, realiza sorteos, muestra el cronómetro, organiza tu programación, crea diapositivas y disfruta de todo lo que el programa tiene para ofrecer!",
+            "text": "El programa puede utilizarse en diversos lugares y ocasiones, como iglesias, grupos pequeños, campamentos, cultos de puesta de sol, reuniones sociales, entre otros.\n¡Proyecte canciones, realice sorteos, muestre cronómetros, prepare su programación, cree diapositivas y disfrute de todo lo que el programa tiene para ofrecer!",
             "photo1": "Iglesias",
             "photo2": "Eventos",
             "photo3": "Grupos Pequeños",
@@ -108,46 +108,46 @@
     "about": {
         "card1": {
             "title": "Canciones",
-            "text": "El programa cuenta con canciones del Himnario Adventista, CDs jóvenes y CDs diversos. La mayoría de las canciones tienen playback. El programa también tiene varias opciones de proyección de las canciones, como: cantado, playback y sin audio, y proyección en 3 pantallas: operador, retorno y público."
+            "text": "El programa cuenta con canciones del Himnario Adventista, CDs jóvenes y álbumes diversos. La mayoría de las canciones tiene playback. También ofrece diversas opciones de proyección: cantado, playback y sin audio, además de proyección en 3 pantallas: operador, retorno y público."
         },
         "card2": {
             "title": "Biblia",
-            "text": "El programa cuenta con la biblia en varias versiones, para ser proyectada para el público, pudiendo proyectar un verso aislado, o varios versos, en secuencia o intercalados. La biblia es totalmente personalizable, pudiendo alterar colores, fuente e imagen de fondo. También hay la posibilidad de buscar versos bíblicos, a través de la pestaña \"Búsqueda Bíblica\"."
+            "text": "El programa incluye la biblia en varias versiones para ser proyectada al público, permitiendo proyectar versículos aislados o en secuencia. La biblia es totalmente personalizable, pudiendo cambiar colores, fuentes e imagen de fondo. También es posible buscar versículos a través de la pestaña \"Búsqueda Bíblica\"."
         },
         "card3": {
-            "title": "Videos En Línea",
-            "text": "El programa dispone de algunos álbumes de canciones directamente de Youtube, donde basta con hacer clic para que el video sea ejecutado directamente para el público. También existe la posibilidad de guardar el enlace de los videos en línea, o ejecutarlo directamente desde el programa, bastando solo pegar la URL de Youtube, para que se ejecute dentro del programa."
+            "title": "Videos Online",
+            "text": "El programa dispone de álbumes de música directamente desde YouTube, donde basta un clic para reproducir el video directamente al público. También es posible guardar enlaces de videos online o ejecutarlos directamente pegando la URL de YouTube."
         },
         "card4": {
             "title": "Organización de los Cultos",
-            "text": "El programa cuenta con varias herramientas para la organización de los cultos, como: \"Liturgia\", para organizar y montar la programación de los cultos; \"Elementos Programados\", para registrar contenidos recurrentes específicos para cada día, y \"Cronómetro de Culto\", para proyectar el tiempo transcurrido y el tiempo restante del culto, pudiendo configurar la duración del culto, o el horario de finalización."
+            "text": "El programa posee diversas herramientas para la organización de los cultos, como: \"Liturgia\", para armar la programación; \"Elementos Programados\", para registrar contenidos recurrentes de cada día; y \"Cronómetro de Culto\", para proyectar el tiempo transcurrido y restante."
         },
         "card5": {
             "title": "Transmisión",
-            "text": "Herramienta para transmitir las letras de las canciones al navegador, donde es posible incorporar el enlace de la transmisión en programas de streaming, como OBS y VMix, por ejemplo. También es posible transmitir la letra en dispositivos que estén conectados en la misma red, como celulares y monitores de retorno."
+            "text": "Herramienta para transmitir las letras de las canciones al navegador, permitiendo incorporar el enlace en programas de streaming como OBS y vMix. También es posible transmitir la letra a dispositivos conectados en la misma red, como teléfonos y monitores de retorno."
         },
         "card6": {
             "title": "Editor de Canciones",
-            "text": "Herramienta para la creación de canciones, en el mismo formato del programa. Crea canciones fácilmente con esta herramienta. Configura las imágenes, colores, letra y audio, y graba los intervalos. Luego, basta con exportar y estará listo para ser ejecutado. Las canciones creadas se pueden colocar en el programa a través del menú \"Colecciones Personalizadas\""
+            "text": "Herramienta para la creación de canciones en el mismo formato del programa. Configure imágenes, colores, letra y audio, y grabe los tiempos. Luego solo exporte y estará listo. Las canciones creadas pueden agregarse mediante el menú \"Colecciones Personalizadas\"."
         },
         "card7": {
             "title": "Utilidades",
-            "text": "Diversas herramientas de ayuda en las programaciones, como: sorteador, Cronómetro, temporizador, reloj y panel de anuncios."
+            "text": "Herramientas diversas de apoyo en las reuniones, como: sorteador, cronómetro, temporizador, reloj y panel de anuncios."
         }
     },
     "download": {
-        "title": "Descargar",
-        "subtitle": "Transforma la proyección de tus cultos.",
-        "description": "Louvor JA es un software robusto para administrar música, videos y letras en los programas de tu iglesia o grupo pequeño. Elige tu versión a continuación.",
+        "title": "Descargue el Programa",
+        "subtitle": "Transforme la proyección de sus cultos.",
+        "description": "Loor JA es un software robusto para administrar canciones, videos y presentaciones en las reuniones de su iglesia o grupo pequeño. Elija su versión a continuación.",
         "requirements_title": "Requisitos del Sistema:",
         "requirements": [
             "<strong>Sistema Operativo:</strong> Windows 7 o superior",
-            "<strong>Mínimo:</strong> Procesador Dual Core, 4 GB de RAM y 25 GB de espacio libre",
-            "<strong>Recomendado:</strong> Intel Core i3 (5ª Gen) o superior, 8 GB de RAM y 25 GB de espacio libre",
+            "<strong>Mínimo:</strong> Procesador Dual Core, 4 GB de RAM y 25 GB de disco libre",
+            "<strong>Recomendado:</strong> Intel Core i3 (5ª Generación) o superior, 8 GB de RAM y 25 GB de disco libre",
             "<strong>Versión Web:</strong> Navegador moderno y conexión a internet"
         ],
         "button": {
-            "pt": "Windows (Português)",
+            "pt": "Windows (Portugués)",
             "es": "Windows (Español)",
             "app": "Acceder Versión Web",
             "community": "Otras Opciones (Comunidad)",
@@ -159,69 +159,162 @@
     },
     "community": {
         "title": "Versiones de la Comunidad",
-        "subtitle": "Ediciones multiplataforma de Louvor JA para Desktop (Windows, Linux y Mac).",
+        "subtitle": "Ediciones multiplataforma de Loor JA para Desktop (Windows, Linux y Mac).",
         "description": "Proyectos de código abierto desarrollados voluntariamente por la comunidad, cada uno con enfoque técnico y nombre en clave musical específico.",
-        "badge_dev": "En Desarrollo",
         "badge_beta": "Versión Beta",
         "badge_alpha": "Versión Alpha",
-        "badge_stable": "Estable",
-        "platforms_title": "Plataformas Compatibles:",
-        "btn_repo": "Ver Repositorio y Descarga",
-        "violin_sub": "Tauri + Rust • Ultraligero y Rápido",
-        "violin_desc": "Construido sobre el motor Tauri para un rendimiento ultra alto, consumo mínimo de memoria RAM e inicio instantáneo.",
-        "piano_sub": "Electron + Vue • Proyección Avanzada",
-        "piano_desc": "Enfoque en soporte para múltiples monitores, pantalla de retorno configurable para equipos de alabanza y editor de escenario dinámico.",
-        "flute_sub": "Go + Webview • Minimalista y Compacto",
-        "flute_desc": "Edición ultra compacta y optimizada para computadoras con hardware modesto o computadoras portátiles antiguas de iglesias.",
-        "sax_sub": ".NET MAUI • Gráficos y Efectos",
-        "sax_desc": "Aceleración por GPU con soporte nativo para efectos visuales fluidos, transiciones de video y renderizado de alta fidelidad.",
-        "cello_sub": "OBS Studio & NDI • Enfoque en Transmisión",
-        "cello_desc": "Integración nativa con OBS Studio, vMix y NDI a través de WebSocket para enviar subtítulos y superposiciones transparentes en vivo.",
-        "harp_sub": "Cloud Sync & Offline-First • Nube e Iglesia",
-        "harp_desc": "Sincronización en la nube de listas e himnos con funcionamiento 100% sin conexión garantizado durante los cultos y eventos."
+        "btn_repo": "Ver Detalles y Descarga"
     },
-    "community_details": {
+    "community_versions": {
         "back_btn": "Volver a Versiones de la Comunidad",
-        "tag_electron": "Ejecutable Electron • Multiplataforma",
-        "tag_standalone": "Aplicación de Escritorio Nativa",
-        "overview_title": "Sobre esta Versión",
-        "overview_desc": "Esta edición fue desarrollada utilizando la tecnología Electron, empaquetando toda la experiencia de Louvor JA en una aplicación de escritorio rápida, liviana e independiente para Linux, macOS y Windows. Cuenta con soporte completo para base de datos local (offline), aceleración por hardware y control total de proyección en múltiples monitores.",
-        "features_title": "Principales Recursos y Ventajas",
-        "feature1_title": "Ejecución 100% Sin Conexión",
-        "feature1_desc": "Todos los himnos, biblias y archivos multimedia guardados localmente en la máquina, permitiendo un funcionamiento continuo sin interrupciones incluso sin internet.",
-        "feature2_title": "Multi-Pantalla y Retorno",
-        "feature2_desc": "Proyección independiente para el público, pantalla de control detallada para el operador y monitor de retorno para el escenario y grupo de alabanza.",
-        "feature3_title": "Atajos y Búsqueda Rápida",
-        "feature3_desc": "Navegación por teclado ultra rápida para localizar himnos por número o título y versículos bíblicos en segundos.",
-        "feature4_title": "Instaladores Nativos",
-        "feature4_desc": "Paquetes dedicados (.AppImage y .deb para Linux, .dmg universal para macOS e instalador .exe para Windows).",
         "downloads_title": "Descargas Disponibles por Sistema",
         "downloads_subtitle": "Elija el paquete correspondiente a su sistema operativo:",
         "dl_linux_title": "Linux (64-bit)",
-        "dl_linux_desc": "Ubuntu, Debian, Fedora, Arch, Linux Mint y derivados.",
-        "dl_linux_appimage": "Descargar .AppImage (Universal)",
+        "dl_linux_desc": "Ubuntu, Debian, Fedora, Arch, Linux Mint, openSUSE, RedHat y derivados.",
+        "dl_linux_appimage": "Descargar .AppImage",
         "dl_linux_deb": "Descargar paquete .deb",
-        "dl_mac_title": "macOS (Apple Silicon e Intel)",
-        "dl_mac_desc": "Compatible con macOS 10.15 Catalina o superior.",
+        "dl_linux_rpm": "Descargar paquete .rpm",
+        "dl_mac_title": "macOS",
+        "dl_mac_desc": "Compatible con macOS 11 Big Sur o superior.",
         "dl_mac_dmg": "Descargar instalador .dmg",
+        "dl_mac_dmg_intel": "Descargar .dmg (Intel / x86_64)",
+        "dl_mac_dmg_arm": "Descargar .dmg (Apple Silicon / ARM64)",
         "dl_win_title": "Windows (64-bit)",
         "dl_win_desc": "Compatible con Windows 10 y Windows 11.",
         "dl_win_exe": "Descargar instalador .exe",
         "dl_win_portable": "Descargar Versión Portátil (.zip)",
-        "requirements_title": "Requisitos del Sistema",
-        "req_linux": "Linux: Kernel 5.4+, 4 GB RAM, 500 MB de disco libre",
-        "req_mac": "macOS: 10.15 Catalina+, Apple Silicon (M1/M2/M3/M4) o Intel, 4 GB RAM",
-        "req_win": "Windows: 10/11 64-bit, procesador Dual Core+, 4 GB RAM",
+        "features_title": "Principales Recursos",
+        "requirements_title": "Requisitos de Hardware y Sistema",
+        "req_table_comp": "Componente",
+        "req_table_min": "Requisitos Mínimos",
+        "req_table_rec": "Requisitos Recomendados",
+        "req_os_title": "Sistema Operativo",
+        "req_cpu_title": "Procesador (CPU)",
+        "req_ram_title": "Memoria RAM",
+        "req_gpu_title": "Tarjeta de Video (GPU)",
+        "req_disk_title": "Almacenamiento",
+        "req_screens_title": "Monitores / Proyección",
         "changelog_title": "Historial de Lanzamientos y Actualizaciones",
-        "v1_title": "Versión 1.0.0 (Beta)",
-        "v1_date": "Lanzamiento Reciente",
-        "v1_item1": "Soporte mejorado para distribuciones Linux mediante AppImage universal y .deb.",
-        "v1_item2": "Empaquetado universal para macOS con soporte nativo para chips Apple Silicon y procesadores Intel.",
-        "v1_item3": "Aceleración gráfica para transiciones de diapositivas más fluidas en pantallas 4K.",
-        "v09_title": "Versión 0.9.5 (Alpha)",
-        "v09_date": "Lanzamiento Anterior",
-        "v09_item1": "Primera compilación multiplataforma con base de datos integrada.",
-        "v09_item2": "Soporte de proyección en monitor secundario a través de API de pantallas."
+        "violin": {
+            "name": "Violin",
+            "version": "v1.0.0 (Beta)",
+            "subtitle": "Tauri + Rust • Ultraligero y Rápido",
+            "short_desc": "Construido sobre el motor Tauri para un rendimiento ultra alto, consumo mínimo de memoria RAM e inicio instantáneo.",
+            "overview_desc": "Loor JA Violin fue desarrollado sobre el motor Tauri y Rust para ofrecer una experiencia ultraligera, con un consumo mínimo de memoria RAM y arranque casi instantáneo. Ideal para quienes buscan máxima rapidez y enfoque total en la proyección.",
+            "feature1_icon": "fa fa-microchip",
+            "feature1_title": "Consumo Mínimo de Memoria",
+            "feature1_desc": "Arquitectura ultraligera en Rust con consumo de RAM inferior a 80 MB, permitiendo ejecución fluida incluso en computadoras modestas.",
+            "feature2_icon": "fa fa-bolt",
+            "feature2_title": "Inicio Instantáneo",
+            "feature2_desc": "Apertura rápida y directa sin sobrecarga de navegadores pesados, lista para proyectar himnos en segundos.",
+            "feature3_icon": "fa fa-file-archive-o",
+            "feature3_title": "Binarios Nativos Compactos",
+            "feature3_desc": "Instaladores de menos de 20 MB para una descarga rápida e instalación sencilla en cualquier computadora.",
+            "feature4_icon": "fa fa-desktop",
+            "feature4_title": "Soporte para Múltiples Monitores",
+            "feature4_desc": "Salida de video independiente para proyectores y TVs con control simplificado para el operador.",
+            "req_os_min": "Windows 10 (64-bit), macOS 10.15+, Linux 64-bit",
+            "req_os_rec": "Windows 11 (64-bit), macOS 12+ o Linux Ubuntu 22.04 LTS",
+            "req_cpu_min": "Dual Core @ 1.6 GHz",
+            "req_cpu_rec": "Quad Core @ 2.0 GHz+ (Intel / AMD / Apple Silicon)",
+            "req_ram_min": "2 GB RAM (Uso ligero del sistema)",
+            "req_ram_rec": "4 GB a 8 GB RAM",
+            "req_gpu_min": "GPU Integrada con OpenGL 3.0 / DirectX 11",
+            "req_gpu_rec": "GPU Integrada Moderna o Dedicada",
+            "req_disk_min": "500 MB libres",
+            "req_disk_rec": "2 GB en SSD",
+            "req_screens_min": "1 Pantalla (1366 × 768)",
+            "req_screens_rec": "2 Pantallas (Operador 1080p + Proyector 1080p)",
+            "v1_title": "Versión 1.0.0 (Beta)",
+            "v1_date": "Lanzamiento Reciente",
+            "v1_item1": "Compilación estable sobre Tauri 2.0 y Rust.",
+            "v1_item2": "Soporte para proyección en pantalla completa con atajos de teclado.",
+            "v1_item3": "Base de datos integrada con búsqueda instantánea.",
+            "v09_title": "Versión 0.9.0 (Alpha)",
+            "v09_date": "Lanzamiento Anterior",
+            "v09_item1": "Primera prueba de concepto ejecutable para Linux, macOS e Windows.",
+            "v09_item2": "Integración inicial de la biblioteca de himnos."
+        },
+        "piano": {
+            "name": "Piano",
+            "version": "v1.0.0 (Beta)",
+            "subtitle": "Electron + Vue • Proyección Avanzada y Retorno",
+            "short_desc": "Enfoque en soporte para múltiples monitores, pantalla de retorno configurable para equipos de alabanza y editor de escenario dinámico.",
+            "overview_desc": "Loor JA Piano está enfocado en estructuras de proyección avanzadas, ofreciendo soporte simultáneo para múltiples monitores, pantalla de retorno dedicada para el escenario y músicos, control dinámico de liturgia e integración con cronómetros en tiempo real.",
+            "feature1_icon": "fa fa-television",
+            "feature1_title": "Monitor de Retorno de Escenario",
+            "feature1_desc": "Pantalla de retorno exclusiva para músicos y grupo de alabanza con letra actual, siguiente estrofa y temporizador.",
+            "feature2_icon": "fa fa-desktop",
+            "feature2_title": "Control Multi-Pantalla Independiente",
+            "feature2_desc": "Gestión simultánea de la pantalla del operador, proyector principal del auditorio y pantallas auxiliares.",
+            "feature3_icon": "fa fa-list-alt",
+            "feature3_title": "Editor de Liturgia Dinámico",
+            "feature3_desc": "Reorganice órdenes de culto, himnos y avisos dinámicamente sin interrumpir la transmisión o proyección.",
+            "feature4_icon": "fa fa-clock-o",
+            "feature4_title": "Alertas y Cronómetros",
+            "feature4_desc": "Visualización de mensajes discretos y cuentas regresivas para predicadores y líderes en el escenario.",
+            "req_os_min": "Windows 10 (64-bit), macOS 11 Big Sur, Linux 64-bit",
+            "req_os_rec": "Windows 11 (64-bit), macOS 13+ o Linux Ubuntu 22.04 LTS",
+            "req_cpu_min": "Dual Core @ 2.0 GHz",
+            "req_cpu_rec": "Quad Core @ 2.5 GHz+ (Core i5 / Ryzen 5 / Apple Silicon)",
+            "req_ram_min": "4 GB RAM",
+            "req_ram_rec": "8 GB a 16 GB RAM (Multitarea con OBS Studio y audio)",
+            "req_gpu_min": "DirectX 11 / OpenGL 3.3 / Metal",
+            "req_gpu_rec": "GPU Dedicada o Moderna con soporte para 3+ salidas de video",
+            "req_disk_min": "2 GB libres",
+            "req_disk_rec": "10 GB en SSD",
+            "req_screens_min": "2 Pantallas (Operador + Proyector)",
+            "req_screens_rec": "3 Pantallas (Operador 1080p + Proyector 4K + Retorno Escenario)",
+            "v1_title": "Versión 1.0.0 (Beta)",
+            "v1_date": "Lanzamiento Reciente",
+            "v1_item1": "Soporte completo para 3 pantallas simultáneas (Operador, Público y Escenario).",
+            "v1_item2": "Nuevo editor de escenario con vista previa en vivo.",
+            "v1_item3": "Sincronización de temporizadores y mensajes en tiempo real.",
+            "v09_title": "Versión 0.9.0 (Alpha)",
+            "v09_date": "Lanzamiento Anterior",
+            "v09_item1": "Módulo experimental de pantalla de retorno para grupos de alabanza.",
+            "v09_item2": "Soporte para múltiples perfiles de proyección."
+        },
+        "flute": {
+            "name": "Flute",
+            "version": "v1.8.8 (Beta)",
+            "subtitle": "PENSADO EN CADA DETALLE",
+            "short_desc": "Con un diseño nuevo, moderno y sofisticado, para ser aún más intuitivo, rápido y fácil de usar en sus cultos y programaciones.",
+            "overview_desc": "Esta edición oficial fue desarrollada para llevar Loor JA de forma nativa e independiente a Linux, macOS e Windows. Con un diseño nuevo, moderno y sofisticado, ha sido actualizado para ser aún más intuitivo, rápido y fácil de usar en sus cultos y reuniones.",
+            "feature1_icon": "fa fa-language",
+            "feature1_title": "Multi-idioma Integrado (PT & ES)",
+            "feature1_desc": "El programa integra las dos versiones (Portugués y Español) en un único ejecutable y se adapta automáticamente al idioma elegido, mostrando colecciones de himnos y versiones de biblia compatibles.",
+            "feature2_icon": "fa fa-cubes",
+            "feature2_title": "Funciones de Delphi + Novedades",
+            "feature2_desc": "Mantiene todas las funcionalidades consagradas del programa oficial en Delphi (canciones, biblia, liturgia, utilidades, etc...), incorporando también novedades y mejoras exclusivas.",
+            "feature3_icon": "fa fa-bolt",
+            "feature3_title": "Más Velocidad y Dinamismo",
+            "feature3_desc": "Aporta mucha más velocidad y dinamismo en comparación con la versión Delphi (siempre que se cumplan los requisitos mínimos), ofreciendo una experiencia visual más rápida, fluida y moderna en transiciones y proyecciones.",
+            "feature4_icon": "fa fa-desktop",
+            "feature4_title": "Compatibilidad Multiplataforma",
+            "feature4_desc": "Disponible con instaladores nativos para Linux (.AppImage, .deb, .rpm), macOS (.dmg para Intel y .dmg para ARM64/Apple Silicon) y Windows (.exe).",
+            "req_os_min": "Windows 10 (64-bit), macOS 11 Big Sur, Linux 64-bit (glibc 2.28+)",
+            "req_os_rec": "Windows 11 (64-bit), macOS 13+ (Apple Silicon) o Ubuntu 22.04/24.04 LTS",
+            "req_cpu_min": "2 Núcleos / 4 Hilos @ 2.0 GHz (Core i3 4ª Gen.+, Ryzen 3)",
+            "req_cpu_rec": "4+ Núcleos @ 2.5 GHz+ (Core i5 8ª Gen.+, Ryzen 5, Apple Silicon M1-M4)",
+            "req_ram_min": "4 GB RAM (Uso exclusivo de app y SO)",
+            "req_ram_rec": "8 GB a 16 GB RAM (Multitarea con OBS Studio, audio y proyección 4K)",
+            "req_gpu_min": "Integrada con DirectX 11 / OpenGL 3.3 / Metal (Intel HD 4000+, Vega 3)",
+            "req_gpu_rec": "Dedicada o Moderna con decodificación por hardware (Iris Xe, RTX, Apple GPU)",
+            "req_disk_min": "2 GB a 5 GB de espacio libre (HD SATA o SSD)",
+            "req_disk_rec": "10 GB a 30 GB de espacio libre en SSD (SATA III o NVMe)",
+            "req_screens_min": "1 Pantalla con resolución mínima de 1366 × 768",
+            "req_screens_rec": "2 Pantallas (Área Extendida): Operador 1080p + Proyector/TV 1080p/4K",
+            "v1_title": "Versión 1.0.0 (Beta)",
+            "v1_date": "Lanzamiento Reciente",
+            "v1_item1": "Actualización al runtime Electron 42 con Chromium moderno.",
+            "v1_item2": "Soporte mejorado para múltiples pantallas y fade-in/fade-out a 60 fps en la proyección secundaria.",
+            "v1_item3": "Aceleración total por hardware y rasterización por GPU habilitadas.",
+            "v09_title": "Versión 0.9.5 (Alpha)",
+            "v09_date": "Lanzamiento Anterior",
+            "v09_item1": "Integración del motor SQLite vía WebAssembly (sql.js) con persistencia local .sysdata.",
+            "v09_item2": "Sincronización de catálogo de medios e himnos vía FTP/HTTP."
+        }
     },
     "contact": {
         "title": "Ponte en Contacto",
@@ -243,30 +336,30 @@
     },
     "dev": {
         "title": "Desarrollador",
-        "text": "Para colaborar, ingrese al grupo de desarrolladores:",
+        "text": "Para colaborar, únete al grupo de desarrolladores:",
         "link": "Acceder al grupo"
     },
     "donation": {
-        "title": "Apoya el Proyecto",
-        "subtitle": "Ayuda a mantener Louvor JA gratuito, actualizado y en línea.",
-        "description": "Louvor JA es desarrollado y mantenido por voluntarios con el propósito de bendecir ministerios de música en iglesias y grupos. Tus contribuciones nos ayudan a cubrir costos de servidores, bases de datos y continuas actualizaciones.",
+        "title": "Apoye el Proyecto",
+        "subtitle": "Ayude a mantener Loor JA gratuito, actualizado y en línea.",
+        "description": "Loor JA es desarrollado y mantenido por voluntarios con el propósito de bendecir ministerios de música en iglesias y grupos. Sus contribuciones nos ayudan a mantener servidores, bases de datos y nuevas actualizaciones constantes.",
         "pix_title": "Donación vía PIX",
-        "pix_subtitle": "Clave Correo Electrónico (Brasil)",
-        "pix_desc": "Abre la app de tu banco, selecciona la opción PIX y utiliza la siguiente clave:",
+        "pix_subtitle": "Clave Correo (Brasil)",
+        "pix_desc": "Abra la aplicación de su banco, seleccione la opción PIX y use la clave a continuación:",
         "pix_copy": "Copiar Clave PIX",
         "pix_copied": "¡Clave Copiada!",
         "paypal_title": "Donación vía PayPal",
         "paypal_subtitle": "Tarjeta de Crédito o Internacional",
-        "paypal_desc": "Contribuye de forma segura a través de tu cuenta PayPal o tarjeta de crédito desde cualquier lugar del mundo.",
+        "paypal_desc": "Contribuya de forma segura a través de su cuenta PayPal o tarjeta de crédito desde cualquier parte del mundo.",
         "paypal_btn": "Donar con PayPal"
     },
     "help": {
         "title": "Centro de Ayuda",
-        "subtitle": "Aprende a utilizar todas las funciones de Louvor JA.",
-        "description": "Tutoriales, atajos, consejos de transmisión y guías paso a paso para ayudarte a ti y al equipo multimedia de tu iglesia.",
+        "subtitle": "Aprenda a utilizar todos los recursos de Loor JA.",
+        "description": "Tutoriales, atajos, consejos de transmisión y guías paso a paso para ayudarle a usted y al equipo de audio y video de su iglesia.",
         "related": "Temas Relacionados",
         "link_back": "Volver a todos los temas",
-        "link_more": "Saber más",
+        "link_more": "Conozca más",
         "articles_count": "temas",
         "lyric_css": "OH DIOS DE AMOR",
         "download_font": "Descargar fuente"
@@ -274,9 +367,9 @@
     "faq": {
         "title": "Preguntas Frecuentes",
         "subtitle": "Respuestas rápidas a las dudas más comunes.",
-        "description": "Reunimos aquí las principales preguntas sobre el uso, configuración, transmisión y funciones del software Louvor JA. Haz clic en cualquier pregunta para leer la guía completa.",
-        "help_cta_title": "¿No encontraste lo que buscabas?",
-        "help_cta_desc": "Explora todas nuestras guías paso a paso, atajos y tutoriales detallados en el Centro de Ayuda.",
+        "description": "Reunimos aquí las principales preguntas sobre el uso, configuración, transmisión y recursos del software Loor JA. Haga clic en cualquier pregunta para leer la guía completa.",
+        "help_cta_title": "¿No encontró lo que buscaba?",
+        "help_cta_desc": "Explore todas nuestras guías paso a paso, atajos y tutoriales detallados en el Centro de Ayuda.",
         "help_cta_btn": "Ir al Centro de Ayuda"
     },
     "notfound": {

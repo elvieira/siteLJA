@@ -29,12 +29,20 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'community' }" @click="isMobileMenuOpen = false">
+        <router-link
+          :to="{ name: 'community' }"
+          :class="{ 'router-link-active': $route.path.startsWith('/comunidade') }"
+          @click="isMobileMenuOpen = false"
+        >
           {{ $t("menu.community") }}
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'help' }" @click="isMobileMenuOpen = false">
+        <router-link
+          :to="{ name: 'help' }"
+          :class="{ 'router-link-active': $route.path.startsWith('/ajuda') || $route.name === 'faq' }"
+          @click="isMobileMenuOpen = false"
+        >
           {{ $t("menu.help") }}
         </router-link>
       </li>

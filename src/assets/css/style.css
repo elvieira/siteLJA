@@ -2231,6 +2231,52 @@ Community Details Page Redesign
     border-bottom: none;
 }
 
+.comm-req-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comm-req-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.comm-req-table th,
+.comm-req-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    text-align: left;
+}
+
+.comm-req-table th {
+    color: #FBBF24;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    background: rgba(251, 191, 36, 0.08);
+}
+
+.comm-req-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.comm-req-table td:first-child {
+    font-weight: 600;
+    color: #f8fafc;
+    white-space: nowrap;
+}
+
+.comm-req-table td:nth-child(2) {
+    color: #94a3b8;
+}
+
+.comm-req-table td:nth-child(3) {
+    color: #e2e8f0;
+}
+
 /* ----------------
 Contact Page Redesign
  -------------------*/

@@ -67,9 +67,6 @@
           </div>
           <h4 class="mb-3 text-warning">{{ $t("community.subtitle") }}</h4>
           <p class="lead text-muted-custom mb-4">{{ $t("community.description") }}</p>
-          <router-link :to="{ name: 'community' }" class="site-btn">
-            {{ $t("carousel.slide3.button1") }}
-          </router-link>
         </div>
 
         <!-- Right: Modern Showcase Card -->
@@ -87,9 +84,6 @@
               </div>
             </div>
             <h6 class="text-warning mb-3 font-weight-bold">Linux • macOS • Windows</h6>
-            <p class="text-muted-custom mb-4" style="font-size: 14px; line-height: 1.6;">
-              {{ $t("community.violin_desc") }}
-            </p>
             <router-link :to="{ name: 'community' }" class="btn-all-topics">
               <span>{{ $t("carousel.slide3.button1") }}</span>
               <i class="fa fa-arrow-right"></i>
