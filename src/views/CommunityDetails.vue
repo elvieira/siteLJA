@@ -12,7 +12,7 @@
       </div>
 
       <!-- Header Hero -->
-      <div class="row mb-5">
+      <div class="row mb-4">
         <div class="col-lg-10">
           <div class="d-flex align-items-center gap-3 mb-4" style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
             <div class="version-logo">
@@ -25,7 +25,7 @@
               </span>
             </div>
             <span class="help-count-badge" style="font-size: 13px; padding: 4px 12px;">
-              {{ $t('community_versions.' + currentSlug + '.version') }}
+              {{ currentVersionTag || $t('community_versions.' + currentSlug + '.version') }}
             </span>
           </div>
           <p class="lead text-muted-custom mb-0" style="font-size: 18px; line-height: 1.7;">
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <!-- App Visual Mockup (Dedicated per version) -->
+      <!-- 1. Foto Principal (Fixa e Independente) -->
       <div class="row mb-5">
         <div class="col-12">
           <div class="comm-card p-2 p-md-3 overflow-hidden text-center" style="border-radius: 18px;">
@@ -44,6 +44,43 @@
               class="img-fluid"
               style="border-radius: 12px; width: 100%; max-height: 540px; object-fit: cover;"
             />
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Galeria de Fotos Pequenas Distribuídas Uniformemente (Abaixo da foto principal) -->
+      <div v-if="galleryPhotos.length > 0" class="row mb-5">
+        <div class="col-12">
+          <div class="comm-card p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+              <div class="d-flex align-items-center gap-2" style="display: flex; gap: 10px; align-items: center;">
+                <i class="fa fa-camera text-warning" style="font-size: 22px;"></i>
+                <h5 class="m-0 text-white font-weight-bold">{{ $t("community_versions.gallery_title") }}</h5>
+              </div>
+              <span class="text-muted-custom" style="font-size: 13px;">
+                <i class="fa fa-search-plus mr-1"></i> {{ $t("community_versions.gallery_hint") }}
+              </span>
+            </div>
+
+            <!-- Grid Uniforme de Miniaturas -->
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-3">
+              <div
+                v-for="(photo, pIdx) in galleryPhotos"
+                :key="pIdx"
+                class="col mb-3"
+              >
+                <div
+                  class="comm-gallery-card"
+                  @click="openLightbox(pIdx)"
+                  title="Clique para expandir"
+                >
+                  <img :src="photo.src" :alt="'Screenshot ' + (pIdx + 1)" />
+                  <div class="comm-gallery-overlay">
+                    <i class="fa fa-search-plus"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -197,52 +234,193 @@
         </div>
       </div>
 
-      <!-- Changelog -->
+      <!-- Changelog Section (Integrated with GitHub Releases) -->
       <div class="row">
         <div class="col-12">
           <div class="comm-card p-4 p-md-5">
-            <div class="d-flex align-items-center gap-3 mb-4" style="display: flex; gap: 12px; align-items: center;">
-              <div class="faq-cta-icon">
-                <i class="fa fa-history"></i>
+            <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+              <div class="d-flex align-items-center gap-3" style="display: flex; gap: 12px; align-items: center;">
+                <div class="faq-cta-icon">
+                  <i class="fa fa-history"></i>
+                </div>
+                <h4 class="m-0 text-white font-weight-bold">{{ $t("community_versions.changelog_title") }}</h4>
               </div>
-              <h4 class="m-0 text-white font-weight-bold">{{ $t("community_versions.changelog_title") }}</h4>
+
+              <a
+                v-if="versionRepoUrl"
+                :href="versionRepoUrl"
+                target="_blank"
+                class="comm-release-github-btn"
+              >
+                <i class="fa fa-github"></i>
+                <span>Ver todas no GitHub</span>
+                <i class="fa fa-external-link ml-1" style="font-size: 11px;"></i>
+              </a>
             </div>
 
-            <!-- Latest Release -->
-            <div class="comm-changelog-item">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <h6 class="text-warning font-weight-bold m-0">{{ $t('community_versions.' + currentSlug + '.v1_title') }}</h6>
-                <span class="help-count-badge">{{ $t('community_versions.' + currentSlug + '.v1_date') }}</span>
-              </div>
-              <ul class="help-article-list mb-0" style="font-size: 13.5px;">
-                <li>{{ $t('community_versions.' + currentSlug + '.v1_item1') }}</li>
-                <li>{{ $t('community_versions.' + currentSlug + '.v1_item2') }}</li>
-                <li>{{ $t('community_versions.' + currentSlug + '.v1_item3') }}</li>
-              </ul>
+            <!-- Loading State -->
+            <div v-if="loadingReleases" class="py-4 text-center text-muted-custom">
+              <i class="fa fa-circle-o-notch fa-spin text-warning mr-2" style="font-size: 20px;"></i>
+              <span>Carregando histórico oficial do GitHub...</span>
             </div>
 
-            <!-- Previous Release -->
-            <div class="comm-changelog-item">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <h6 class="text-muted font-weight-bold m-0">{{ $t('community_versions.' + currentSlug + '.v09_title') }}</h6>
-                <span class="help-count-badge">{{ $t('community_versions.' + currentSlug + '.v09_date') }}</span>
+            <!-- Dynamic GitHub Releases -->
+            <div v-else-if="releasesList.length > 0">
+              <!-- Visible Releases (Initially only the latest release) -->
+              <div
+                v-for="rel in visibleReleases"
+                :key="rel.id"
+                class="comm-changelog-item"
+              >
+                <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                  <div class="d-flex align-items-center gap-2" style="display: flex; gap: 10px; align-items: center;">
+                    <h5 class="text-warning font-weight-bold m-0" style="font-size: 19px;">{{ rel.name || rel.tag_name }}</h5>
+                    <span v-if="rel.prerelease" class="comm-release-badge prerelease">Pré-lançamento</span>
+                    <span v-else class="comm-release-badge stable">Estável</span>
+                  </div>
+                  <span class="help-count-badge">{{ formatReleaseDate(rel.published_at || rel.created_at) }}</span>
+                </div>
+
+                <!-- Formatted Release Markdown Body -->
+                <div class="comm-release-body" v-html="formatReleaseBody(rel.body)"></div>
+
+                <div class="mt-3">
+                  <a
+                    :href="rel.html_url"
+                    target="_blank"
+                    class="comm-release-github-btn"
+                  >
+                    <i class="fa fa-github"></i>
+                    <span>Ver release no GitHub</span>
+                    <i class="fa fa-external-link ml-1" style="font-size: 10px;"></i>
+                  </a>
+                </div>
               </div>
-              <ul class="help-article-list mb-0" style="font-size: 13.5px;">
-                <li>{{ $t('community_versions.' + currentSlug + '.v09_item1') }}</li>
-                <li>{{ $t('community_versions.' + currentSlug + '.v09_item2') }}</li>
-              </ul>
+
+              <!-- Button to toggle previous releases -->
+              <div v-if="releasesList.length > 1" class="text-center mt-4 pt-2">
+                <button
+                  type="button"
+                  class="btn-all-topics d-inline-flex align-items-center gap-2"
+                  @click="showAllReleases = !showAllReleases"
+                  style="cursor: pointer; border: 1px solid rgba(251, 191, 36, 0.35); padding: 10px 22px;"
+                >
+                  <i :class="showAllReleases ? 'fa fa-chevron-up' : 'fa fa-history text-warning'"></i>
+                  <span class="font-weight-bold">
+                    {{
+                      showAllReleases
+                        ? $t("community_versions.hide_previous_releases")
+                        : $t("community_versions.show_all_releases", { count: releasesList.length - 1 })
+                    }}
+                  </span>
+                  <i :class="showAllReleases ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Fallback Static Releases (if offline or no repo) -->
+            <div v-else>
+              <!-- Latest Release -->
+              <div class="comm-changelog-item">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <h6 class="text-warning font-weight-bold m-0">{{ $t('community_versions.' + currentSlug + '.v1_title') }}</h6>
+                  <span class="help-count-badge">{{ $t('community_versions.' + currentSlug + '.v1_date') }}</span>
+                </div>
+                <ul class="help-article-list mb-0" style="font-size: 13.5px;">
+                  <li>{{ $t('community_versions.' + currentSlug + '.v1_item1') }}</li>
+                  <li>{{ $t('community_versions.' + currentSlug + '.v1_item2') }}</li>
+                  <li>{{ $t('community_versions.' + currentSlug + '.v1_item3') }}</li>
+                </ul>
+              </div>
+
+              <!-- Previous Release -->
+              <div class="comm-changelog-item">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <h6 class="text-muted font-weight-bold m-0">{{ $t('community_versions.' + currentSlug + '.v09_title') }}</h6>
+                  <span class="help-count-badge">{{ $t('community_versions.' + currentSlug + '.v09_date') }}</span>
+                </div>
+                <ul class="help-article-list mb-0" style="font-size: 13.5px;">
+                  <li>{{ $t('community_versions.' + currentSlug + '.v09_item1') }}</li>
+                  <li>{{ $t('community_versions.' + currentSlug + '.v09_item2') }}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Lightbox Modal Expandível (Fullscreen) -->
+      <teleport to="body">
+        <transition name="fade">
+          <div
+            v-if="lightboxOpen"
+            class="comm-lightbox-backdrop"
+            @click.self="closeLightbox"
+          >
+            <!-- Botão Fechar -->
+            <button
+              type="button"
+              class="comm-lightbox-close"
+              @click="closeLightbox"
+              title="Fechar (Esc)"
+            >
+              <i class="fa fa-times"></i>
+            </button>
+
+            <!-- Botão Foto Anterior -->
+            <button
+              v-if="galleryPhotos.length > 1"
+              type="button"
+              class="comm-lightbox-nav prev"
+              @click.stop="prevLightbox"
+              title="Foto anterior (Seta esquerda)"
+            >
+              <i class="fa fa-chevron-left"></i>
+            </button>
+
+            <!-- Conteúdo da Imagem Expandida -->
+            <div class="comm-lightbox-content" @click.self="closeLightbox">
+              <img
+                :src="galleryPhotos[lightboxIndex].src"
+                :alt="'Screenshot ' + (lightboxIndex + 1)"
+                class="comm-lightbox-img"
+              />
+              <div class="comm-lightbox-caption mt-3">
+                <span>{{ lightboxIndex + 1 }} / {{ galleryPhotos.length }}</span>
+              </div>
+            </div>
+
+            <!-- Botão Próxima Foto -->
+            <button
+              v-if="galleryPhotos.length > 1"
+              type="button"
+              class="comm-lightbox-nav next"
+              @click.stop="nextLightbox"
+              title="Próxima foto (Seta direita)"
+            >
+              <i class="fa fa-chevron-right"></i>
+            </button>
+          </div>
+        </transition>
+      </teleport>
     </div>
   </section>
 </template>
 
 <script>
-import violinMockup from "@/assets/imgs/community-violin.jpg";
-import pianoMockup from "@/assets/imgs/community-piano.jpg";
-import fluteMockup from "@/assets/imgs/community-flute.jpg";
+import { versionMetadata, getVersionDownloads, activeVersions } from "@/versions";
+
+// Auto-descoberta de imagens em src/versions/**/assets/ e src/assets/imgs/versions/
+const versionAssetModules = {
+  ...import.meta.glob("../versions/**/assets/*.{jpg,jpeg,png,webp,svg}", {
+    eager: true,
+    import: "default",
+  }),
+  ...import.meta.glob("../assets/imgs/versions/**/*.{jpg,jpeg,png,webp,svg}", {
+    eager: true,
+    import: "default",
+  }),
+};
 
 export default {
   name: "CommunityDetails",
@@ -252,208 +430,357 @@ export default {
       default: "flute",
     },
   },
+  data() {
+    return {
+      lightboxOpen: false,
+      lightboxIndex: 0,
+      releasesList: [],
+      loadingReleases: false,
+      showAllReleases: false,
+    };
+  },
+  watch: {
+    slug() {
+      this.lightboxOpen = false;
+      this.lightboxIndex = 0;
+      this.showAllReleases = false;
+      this.loadReleases();
+    },
+  },
+  mounted() {
+    window.addEventListener("keydown", this.handleKeyDown);
+    this.loadReleases();
+  },
+  beforeUnmount() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+  },
   computed: {
     currentSlug() {
-      const allowed = ["violin", "piano", "flute"];
-      return allowed.includes(this.slug?.toLowerCase())
+      return activeVersions.includes(this.slug?.toLowerCase())
         ? this.slug.toLowerCase()
         : "flute";
     },
     currentCodename() {
-      const names = {
-        violin: "Violin",
-        piano: "Piano",
-        flute: "Flute",
-      };
-      return names[this.currentSlug] || "Flute";
+      return (
+        versionMetadata[this.currentSlug]?.codename ||
+        this.currentSlug.charAt(0).toUpperCase() + this.currentSlug.slice(1)
+      );
+    },
+    currentVersionTag() {
+      if (this.releasesList.length > 0) {
+        return this.releasesList[0].tag_name;
+      }
+      return null;
+    },
+    visibleReleases() {
+      if (this.showAllReleases) {
+        return this.releasesList;
+      }
+      return this.releasesList.slice(0, 1);
+    },
+    versionRepoUrl() {
+      return versionMetadata[this.currentSlug]?.releasesUrl || null;
     },
     currentMockup() {
-      const mockups = {
-        violin: violinMockup,
-        piano: pianoMockup,
-        flute: fluteMockup,
-      };
-      return mockups[this.currentSlug] || fluteMockup;
+      // 1. Procura foto com nome 'main' na pasta de assets da versão
+      const mainImgEntry = Object.entries(versionAssetModules).find(
+        ([path]) =>
+          path.includes(`/${this.currentSlug}/`) &&
+          /\/main\.(jpe?g|png|webp|svg)$/i.test(path)
+      );
+      if (mainImgEntry) {
+        return mainImgEntry[1];
+      }
+
+      // 2. Fallback para mockup padrão registrado
+      return (
+        versionMetadata[this.currentSlug]?.mainImage ||
+        versionMetadata.flute.mainImage
+      );
+    },
+    galleryPhotos() {
+      // Procura fotos numeradas (01, 02, 03...) e exclui a foto 'main'
+      const matched = Object.entries(versionAssetModules)
+        .filter(
+          ([path]) =>
+            path.includes(`/${this.currentSlug}/`) &&
+            !/\/main\.(jpe?g|png|webp|svg)$/i.test(path)
+        )
+        .sort(([a], [b]) =>
+          a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+        )
+        .map(([path, src]) => ({
+          src,
+          path,
+        }));
+
+      return matched;
     },
     currentDownloads() {
-      const t = (key) => this.$t(key);
-      const configs = {
-        flute: [
-          {
-            icon: "fa fa-linux",
-            title: t("community_versions.dl_linux_title"),
-            badge: "deb • rpm • appimage",
-            desc: t("community_versions.dl_linux_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_linux_appimage"),
-                icon: "fa fa-download",
-                size: "85 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_linux_deb"),
-                icon: "fa fa-download",
-                size: "78 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_linux_rpm"),
-                icon: "fa fa-download",
-                size: "80 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-          {
-            icon: "fa fa-apple",
-            title: t("community_versions.dl_mac_title"),
-            badge: "Intel & ARM64",
-            desc: t("community_versions.dl_mac_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_mac_dmg_intel"),
-                icon: "fa fa-download",
-                size: "92 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_mac_dmg_arm"),
-                icon: "fa fa-download",
-                size: "88 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-          {
-            icon: "fa fa-windows",
-            title: t("community_versions.dl_win_title"),
-            badge: "64-bit (x64)",
-            desc: t("community_versions.dl_win_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_win_exe"),
-                icon: "fa fa-download",
-                size: "80 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-        ],
-        violin: [
-          {
-            icon: "fa fa-linux",
-            title: t("community_versions.dl_linux_title"),
-            badge: "x86_64",
-            desc: t("community_versions.dl_linux_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_linux_appimage"),
-                icon: "fa fa-download",
-                size: "18 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_linux_deb"),
-                icon: "fa fa-download",
-                size: "14 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-          {
-            icon: "fa fa-apple",
-            title: t("community_versions.dl_mac_title"),
-            badge: "Universal",
-            desc: t("community_versions.dl_mac_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_mac_dmg"),
-                icon: "fa fa-download",
-                size: "22 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-          {
-            icon: "fa fa-windows",
-            title: t("community_versions.dl_win_title"),
-            badge: "Win 10/11",
-            desc: t("community_versions.dl_win_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_win_exe"),
-                icon: "fa fa-download",
-                size: "16 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_win_portable"),
-                icon: "fa fa-file-archive-o",
-                size: "15 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-        ],
-        piano: [
-          {
-            icon: "fa fa-linux",
-            title: t("community_versions.dl_linux_title"),
-            badge: "x86_64",
-            desc: t("community_versions.dl_linux_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_linux_appimage"),
-                icon: "fa fa-download",
-                size: "88 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_linux_deb"),
-                icon: "fa fa-download",
-                size: "82 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-          {
-            icon: "fa fa-apple",
-            title: t("community_versions.dl_mac_title"),
-            badge: "Universal",
-            desc: t("community_versions.dl_mac_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_mac_dmg"),
-                icon: "fa fa-download",
-                size: "95 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-          {
-            icon: "fa fa-windows",
-            title: t("community_versions.dl_win_title"),
-            badge: "Win 10/11",
-            desc: t("community_versions.dl_win_desc"),
-            links: [
-              {
-                label: t("community_versions.dl_win_exe"),
-                icon: "fa fa-download",
-                size: "84 MB",
-                url: "https://github.com/louvorja",
-              },
-              {
-                label: t("community_versions.dl_win_portable"),
-                icon: "fa fa-file-archive-o",
-                size: "86 MB",
-                url: "https://github.com/louvorja",
-              },
-            ],
-          },
-        ],
+      const baseDownloads = getVersionDownloads(
+        this.currentSlug,
+        (k) => this.$t(k)
+      );
+
+      // Se temos os dados da release do GitHub carregados com os assets reais
+      if (this.releasesList.length > 0 && this.releasesList[0].assets) {
+        const assets = this.releasesList[0].assets;
+
+        const findAsset = (predicate) => {
+          const asset = assets.find(predicate);
+          if (!asset) return null;
+          const sizeMB = (asset.size / (1024 * 1024)).toFixed(0) + " MB";
+          return {
+            url: asset.browser_download_url,
+            size: sizeMB,
+          };
+        };
+
+        const appImage = findAsset((a) => a.name.endsWith(".AppImage"));
+        const deb = findAsset((a) => a.name.endsWith(".deb"));
+        const rpm = findAsset((a) => a.name.endsWith(".rpm"));
+        const dmgIntel = findAsset(
+          (a) =>
+            a.name.endsWith(".dmg") &&
+            !a.name.toLowerCase().includes("arm64")
+        );
+        const dmgArm = findAsset(
+          (a) =>
+            a.name.endsWith(".dmg") &&
+            a.name.toLowerCase().includes("arm64")
+        );
+        const exe = findAsset((a) => a.name.endsWith(".exe"));
+
+        return baseDownloads.map((group) => {
+          const links = group.links.map((link) => {
+            let matched = null;
+            if (link.label.includes(".AppImage") && appImage) {
+              matched = appImage;
+            } else if (link.label.includes(".deb") && deb) {
+              matched = deb;
+            } else if (link.label.includes(".rpm") && rpm) {
+              matched = rpm;
+            } else if (link.label.includes("Intel") && dmgIntel) {
+              matched = dmgIntel;
+            } else if (
+              (link.label.includes("Silicon") ||
+                link.label.includes("ARM64")) &&
+              dmgArm
+            ) {
+              matched = dmgArm;
+            } else if (link.label.includes(".exe") && exe) {
+              matched = exe;
+            }
+
+            if (matched) {
+              return {
+                ...link,
+                url: matched.url,
+                size: matched.size,
+              };
+            }
+            return link;
+          });
+
+          return {
+            ...group,
+            links,
+          };
+        });
+      }
+
+      return baseDownloads;
+    },
+  },
+  methods: {
+    async loadReleases() {
+      const repo = versionMetadata[this.currentSlug]?.repo;
+      if (!repo) {
+        this.releasesList = [];
+        return;
+      }
+
+      this.loadingReleases = true;
+      try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=10`);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            this.releasesList = data;
+          }
+        }
+      } catch (err) {
+        console.warn("Erro ao carregar releases do GitHub:", err);
+      } finally {
+        this.loadingReleases = false;
+      }
+    },
+    formatReleaseDate(isoDate) {
+      if (!isoDate) return "";
+      try {
+        const d = new Date(isoDate);
+        const locale = this.$i18n.locale === "es" ? "es-ES" : "pt-BR";
+        return d.toLocaleDateString(locale, {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        });
+      } catch {
+        return isoDate;
+      }
+    },
+    formatReleaseBody(body) {
+      if (!body) return "";
+
+      const lines = body.split(/\r?\n/);
+      let html = "";
+      let inList = false;
+      let inSublist = false;
+
+      const escapeHtml = (str) =>
+        str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
+      const formatInline = (str) => {
+        let s = escapeHtml(str);
+        // Code `code`
+        s = s.replace(/`([^`]+)`/g, '<code class="comm-inline-code">$1</code>');
+        // Bold **text**
+        s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        // Italic *text*
+        s = s.replace(/(^|[^\*])\*([^\*]+)\*([^\*]|$)/g, "$1<em>$2</em>$3");
+        // Links [text](url)
+        s = s.replace(
+          /\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noopener" class="text-warning text-decoration-underline">$1</a>'
+        );
+        return s;
       };
-      return configs[this.currentSlug] || configs.flute;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        // Headings ### Title
+        if (/^###\s+(.*)/.test(line)) {
+          if (inSublist) {
+            html += "</ul>";
+            inSublist = false;
+          }
+          if (inList) {
+            html += "</ul>";
+            inList = false;
+          }
+          const title = line.replace(/^###\s+/, "");
+          html += `<h6 class="comm-release-heading">${formatInline(title)}</h6>`;
+          continue;
+        }
+
+        // Headings ## Title
+        if (/^##\s+(.*)/.test(line)) {
+          if (inSublist) {
+            html += "</ul>";
+            inSublist = false;
+          }
+          if (inList) {
+            html += "</ul>";
+            inList = false;
+          }
+          const title = line.replace(/^##\s+/, "");
+          html += `<h5 class="comm-release-heading">${formatInline(title)}</h5>`;
+          continue;
+        }
+
+        // Nested sub-bullet (indented with 2+ spaces or tab)
+        if (/^(\s{2,}|\t)[*-]\s+(.*)/.test(line)) {
+          const content = line.replace(/^(\s{2,}|\t)[*-]\s+/, "");
+          if (!inList) {
+            html += '<ul class="comm-release-list">';
+            inList = true;
+          }
+          if (!inSublist) {
+            html += '<ul class="comm-release-sublist">';
+            inSublist = true;
+          }
+          html += `<li class="comm-release-subitem">${formatInline(content)}</li>`;
+          continue;
+        }
+
+        // Primary bullet item
+        if (/^[*-]\s+(.*)/.test(line)) {
+          if (inSublist) {
+            html += "</ul>";
+            inSublist = false;
+          }
+          if (!inList) {
+            html += '<ul class="comm-release-list">';
+            inList = true;
+          }
+          const content = line.replace(/^[*-]\s+/, "");
+          html += `<li class="comm-release-item-li">${formatInline(content)}</li>`;
+          continue;
+        }
+
+        // Empty line
+        if (line.trim() === "") {
+          if (inSublist) {
+            html += "</ul>";
+            inSublist = false;
+          }
+          continue;
+        }
+
+        // Regular paragraph
+        if (inSublist) {
+          html += "</ul>";
+          inSublist = false;
+        }
+        if (inList) {
+          html += "</ul>";
+          inList = false;
+        }
+        html += `<p class="comm-release-p">${formatInline(line)}</p>`;
+      }
+
+      if (inSublist) {
+        html += "</ul>";
+      }
+      if (inList) {
+        html += "</ul>";
+      }
+
+      return html;
+    },
+    openLightbox(index) {
+      this.lightboxIndex = index;
+      this.lightboxOpen = true;
+      document.body.style.overflow = "hidden";
+    },
+    closeLightbox() {
+      this.lightboxOpen = false;
+      document.body.style.overflow = "";
+    },
+    prevLightbox() {
+      if (this.galleryPhotos.length <= 1) return;
+      this.lightboxIndex =
+        (this.lightboxIndex - 1 + this.galleryPhotos.length) %
+        this.galleryPhotos.length;
+    },
+    nextLightbox() {
+      if (this.galleryPhotos.length <= 1) return;
+      this.lightboxIndex =
+        (this.lightboxIndex + 1) % this.galleryPhotos.length;
+    },
+    handleKeyDown(e) {
+      if (!this.lightboxOpen) return;
+      if (e.key === "Escape") {
+        this.closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        this.prevLightbox();
+      } else if (e.key === "ArrowRight") {
+        this.nextLightbox();
+      }
     },
   },
 };

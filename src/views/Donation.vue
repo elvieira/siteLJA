@@ -19,7 +19,7 @@
           <div class="donation-card donation-card-pix">
             <div class="donation-card-header">
               <div class="donation-logo-badge">
-                <img src="@/assets/imgs/pix.png" alt="PIX" class="donation-img" />
+                <img src="@/assets/imgs/pix.webp" alt="PIX" class="donation-img" />
               </div>
               <span class="donation-country-badge pix-badge">
                 <i class="fa fa-bolt"></i> Instantâneo (Brasil)
@@ -56,7 +56,7 @@
           <div class="donation-card donation-card-paypal">
             <div class="donation-card-header">
               <div class="donation-logo-badge paypal-logo-bg">
-                <img src="@/assets/imgs/paypal.png" alt="PayPal" class="donation-img" />
+                <img src="@/assets/imgs/paypal.webp" alt="PayPal" class="donation-img" />
               </div>
               <span class="donation-country-badge paypal-badge">
                 <i class="fa fa-globe"></i> Internacional / Cartão

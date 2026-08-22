@@ -109,25 +109,25 @@
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <div class="concept-item">
-            <img src="@/assets/imgs/photo-002.jpg" alt="" />
+            <img src="@/assets/imgs/photo-002.webp" alt="" />
             <h5>{{ $t("home.card3.photo1") }}</h5>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="concept-item">
-            <img src="@/assets/imgs/photo-004.jpg" alt="" />
+            <img src="@/assets/imgs/photo-004.webp" alt="" />
             <h5>{{ $t("home.card3.photo2") }}</h5>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="concept-item">
-            <img src="@/assets/imgs/photo-003.jpg" alt="" />
+            <img src="@/assets/imgs/photo-003.webp" alt="" />
             <h5>{{ $t("home.card3.photo3") }}</h5>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="concept-item">
-            <img src="@/assets/imgs/photo-001.jpg" alt="" />
+            <img src="@/assets/imgs/photo-001.webp" alt="" />
             <h5>{{ $t("home.card3.photo4") }}</h5>
           </div>
         </div>

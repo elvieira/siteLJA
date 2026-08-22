@@ -2116,39 +2116,21 @@ Community Page & Codename Badges
 }
 
 .codename-badge.codename-violin {
-    background: rgba(244, 114, 182, 0.12);
-    color: #f472b6;
-    border-color: rgba(244, 114, 182, 0.3);
+    background: rgba(245, 166, 17, 0.15);
+    color: #F5A611;
+    border-color: rgba(245, 166, 17, 0.35);
 }
 
 .codename-badge.codename-piano {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
-    border-color: rgba(56, 189, 248, 0.3);
+    background: rgba(224, 139, 91, 0.15);
+    color: #E08B5B;
+    border-color: rgba(224, 139, 91, 0.35);
 }
 
 .codename-badge.codename-flute {
-    background: rgba(74, 222, 128, 0.12);
-    color: #4ade80;
-    border-color: rgba(74, 222, 128, 0.3);
-}
-
-.codename-badge.codename-sax {
-    background: rgba(251, 191, 36, 0.12);
-    color: #FBBF24;
-    border-color: rgba(251, 191, 36, 0.3);
-}
-
-.codename-badge.codename-cello {
-    background: rgba(168, 85, 247, 0.12);
-    color: #c084fc;
-    border-color: rgba(168, 85, 247, 0.3);
-}
-
-.codename-badge.codename-harp {
-    background: rgba(45, 212, 191, 0.12);
-    color: #2dd4bf;
-    border-color: rgba(45, 212, 191, 0.3);
+    background: rgba(0, 132, 193, 0.15);
+    color: #0084C1;
+    border-color: rgba(0, 132, 193, 0.35);
 }
 
 .platform-pill {
@@ -2220,15 +2202,144 @@ Community Details Page Redesign
 }
 
 .comm-changelog-item {
-    padding-bottom: 18px;
-    margin-bottom: 18px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .comm-changelog-item:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
     border-bottom: none;
+}
+
+.comm-release-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.comm-release-badge.stable {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.comm-release-badge.prerelease {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.comm-release-body {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.comm-release-heading {
+    color: #FBBF24;
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.comm-release-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comm-release-item-li {
+    position: relative;
+    padding-left: 20px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.comm-release-item-li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #FBBF24;
+    box-shadow: 0 0 6px rgba(251, 191, 36, 0.5);
+}
+
+.comm-release-sublist {
+    list-style: none;
+    padding-left: 14px;
+    margin: 8px 0 4px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.comm-release-subitem {
+    position: relative;
+    padding-left: 18px;
+    color: #94a3b8;
+    font-size: 13.5px;
+    line-height: 1.55;
+}
+
+.comm-release-subitem::before {
+    content: "–";
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    color: #FBBF24;
+    font-weight: bold;
+}
+
+.comm-release-p {
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+.comm-inline-code {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FBBF24;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    font-family: monospace;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comm-release-body strong {
+    color: #f8fafc;
+}
+
+.comm-release-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: #94a3b8;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.comm-release-github-btn:hover {
+    color: #FBBF24;
+    background: rgba(251, 191, 36, 0.1);
+    border-color: rgba(251, 191, 36, 0.3);
 }
 
 .comm-req-table-wrapper {
@@ -2275,6 +2386,189 @@ Community Details Page Redesign
 
 .comm-req-table td:nth-child(3) {
     color: #e2e8f0;
+}
+
+/* Community Version Gallery & Fullscreen Lightbox */
+.comm-gallery-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    aspect-ratio: 16 / 10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comm-gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.comm-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    color: #FBBF24;
+    font-size: 22px;
+}
+
+.comm-gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: #FBBF24;
+    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.2);
+}
+
+.comm-gallery-card:hover img {
+    transform: scale(1.06);
+}
+
+.comm-gallery-card:hover .comm-gallery-overlay {
+    opacity: 1;
+}
+
+/* Lightbox Modal */
+.comm-lightbox-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 15, 29, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.comm-lightbox-content {
+    max-width: 90vw;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+}
+
+.comm-lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    animation: zoomIn 0.25s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.comm-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1000000;
+}
+
+.comm-lightbox-close:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.comm-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1000000;
+}
+
+.comm-lightbox-nav.prev {
+    left: 28px;
+}
+
+.comm-lightbox-nav.next {
+    right: 28px;
+}
+
+.comm-lightbox-nav:hover {
+    background: #FBBF24;
+    color: #0f172a;
+    border-color: #FBBF24;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.comm-lightbox-caption {
+    color: #94a3b8;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .comm-lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .comm-lightbox-nav.prev {
+        left: 10px;
+    }
+    .comm-lightbox-nav.next {
+        right: 10px;
+    }
+    .comm-lightbox-close {
+        top: 14px;
+        right: 14px;
+    }
 }
 
 /* ----------------

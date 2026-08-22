@@ -31,12 +31,12 @@
                   <div class="hr-img">
                     <img
                       v-if="lang === 'pt'"
-                      src="@/assets/imgs/001-pt.png"
+                      src="@/assets/imgs/001-pt.webp"
                       alt=""
                     />
                     <img
                       v-else-if="lang === 'es'"
-                      src="@/assets/imgs/001-es.png"
+                      src="@/assets/imgs/001-es.webp"
                       alt=""
                     />
                   </div>
@@ -65,12 +65,12 @@
                   <div class="hr-img">
                     <img
                       v-if="lang === 'pt'"
-                      src="@/assets/imgs/002-pt.png"
+                      src="@/assets/imgs/002-pt.webp"
                       alt=""
                     />
                     <img
                       v-else-if="lang === 'es'"
-                      src="@/assets/imgs/002-es.png"
+                      src="@/assets/imgs/002-es.webp"
                       alt=""
                     />
                   </div>
@@ -94,7 +94,7 @@
                 <div class="col-lg-6">
                   <div class="hr-img">
                     <img
-                      src="@/assets/imgs/community-flute.jpg"
+                      src="@/versions/flute/assets/main.jpg"
                       alt="Louvor JA Multiplataforma"
                       class="img-fluid rounded-4 shadow-lg"
                       style="border-radius: 20px; max-height: 420px; object-fit: cover;"
