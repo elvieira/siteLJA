@@ -15,12 +15,12 @@ export const registeredVersions = [
     folder: "community",
     color: "#0084C1",
     stage: "Beta",
-    platforms: ["linux", "mac", "windows"],
+    platforms: ["windows", "mac", "linux"],
   },
   {
     slug: "piano",
     codename: "Piano",
-    repo: "elvieira/LouvorJA-Piano",
+    repo: "",
     branch: "main",
     folder: "community",
     color: "#E08B5B",
@@ -30,7 +30,7 @@ export const registeredVersions = [
   {
     slug: "violin",
     codename: "Violin",
-    repo: "elvieira/LouvorJA-Violin",
+    repo: "",
     branch: "main",
     folder: "community",
     color: "#F5A611",
