@@ -29,6 +29,7 @@ const routes = [
     name: "download",
     component: Download,
   },
+  /*
   {
     path: "/comunidade",
     name: "community",
@@ -40,6 +41,7 @@ const routes = [
     component: CommunityDetails,
     props: true,
   },
+  */
   {
     path: "/contato",
     name: "contact",

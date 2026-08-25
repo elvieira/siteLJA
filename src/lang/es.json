@@ -257,6 +257,8 @@
         "help_cta_btn": "Ir al Centro de Ayuda"
     },
     "notfound": {
-        "title": "¡Página no encontrada!"
+        "title": "¡Página no encontrada!",
+        "desc": "Parece que te perdiste, o la página que buscas fue movida o ya no existe.",
+        "back": "Volver al Inicio"
     }
 }
