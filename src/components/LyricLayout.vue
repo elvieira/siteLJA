@@ -1,7 +1,7 @@
 <template>
   <div :id="uuid" style="position: relative">
     <img
-      src="@/assets/imgs/wallpaper-001.jpg"
+      src="@/assets/imgs/photo-001.webp"
       style="width: 100%; height: 250px"
       class="object-fit-cover"
     />

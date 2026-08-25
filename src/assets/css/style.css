@@ -491,6 +491,10 @@ Hero section
 Intro section
  -------------------*/
 
+.intro-section {
+	background-color: #0B1120; /* Cor de fundo base */
+}
+
 .intro-section p {
 	margin-bottom: 35px;
 	padding-top: 10px;
@@ -501,7 +505,7 @@ How section
  -------------------*/
 
 .how-section {
-	background: linear-gradient(180deg, #0B1120 0%, #0F172A 100%);
+	background-color: #131B2F; /* Fundo alternado um pouco mais claro para destacar a sessão */
 }
 
 .how-item {
@@ -551,6 +555,10 @@ How section
 /* ----------------
 Concept section
  -------------------*/
+
+.concept-section {
+	background-color: #131B2F; /* Fundo alternado */
+}
 
 .concept-section p {
 	padding-top: 5px;
@@ -3450,6 +3458,12 @@ FAQ Page Redesign
 	background: radial-gradient(circle at center right, #1E293B 0%, #0B1120 100%);
     position: relative;
     z-index: 1;
+}
+
+.community-highlight-section {
+    background-color: #0B1120;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* FAQ Sidebar CTA Box */
