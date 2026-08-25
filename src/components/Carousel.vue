@@ -94,15 +94,11 @@
                 <div class="col-lg-6">
                   <div class="hr-img">
                     <img
-                      v-if="fluteMainImage"
-                      :src="fluteMainImage"
+                      src="@/assets/imgs/photo-community.webp"
                       alt="Louvor JA Multiplataforma"
                       class="img-fluid rounded-4 shadow-lg"
                       style="border-radius: 20px; max-height: 420px; object-fit: cover;"
                     />
-                    <div v-else style="height: 250px; background: rgba(255,255,255,0.1); border-radius: 20px;" class="d-flex align-items-center justify-content-center">
-                      <i class="fa fa-circle-o-notch fa-spin text-warning" style="font-size: 32px"></i>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -139,7 +135,6 @@
 <script>
 import "vue3-carousel/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-import { loadCommunityVersion, registeredVersions } from "@/versions";
 
 export default {
   name: "CarouselComponent",
@@ -154,21 +149,7 @@ export default {
       itemsToShow: 1,
       wrapAround: true,
     },
-    fluteMainImage: null,
   }),
-  async mounted() {
-    const fluteConfig = registeredVersions.find((v) => v.slug === "flute");
-    if (fluteConfig) {
-      try {
-        const data = await loadCommunityVersion(fluteConfig);
-        if (data && data.mainImage) {
-          this.fluteMainImage = data.mainImage;
-        }
-      } catch (err) {
-        console.warn("Erro ao carregar imagem do Carousel:", err);
-      }
-    }
-  },
   computed: {
     lang() {
       return this.$i18n.locale;

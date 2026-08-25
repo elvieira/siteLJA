@@ -70,27 +70,29 @@ export default {
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 99999;
+  backdrop-filter: blur(5px);
 }
 
 .popup-box {
   width: 420px;
   max-width: 92%;
-  background: white;
-  border-radius: 18px;
+  background: #131B2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
   position: relative;
-  animation: pop 0.35s ease;
+  animation: pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes pop {
   from {
-    transform: scale(0.85);
+    transform: scale(0.9);
     opacity: 0;
   }
   to {
@@ -101,21 +103,41 @@ export default {
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 14px;
+  top: 14px;
+  right: 18px;
   border: none;
-  background: none;
-  font-size: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  color: white;
+  color: #a5a5b1;
+  transition: all 0.2s ease;
   z-index: 2;
 }
 
-.popup-header {
-  padding: 30px 20px;
-  text-align: center;
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+.popup-header {
+  padding: 30px 20px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.popup-header h3 {
+  color: white;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .popup-content {
@@ -125,20 +147,38 @@ export default {
 
 .insta-logo {
   width: 70px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 10px rgba(225, 48, 108, 0.3));
+}
+
+.popup-content h3 {
+  color: #FBBF24;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  color: #a5a5b1;
+  margin-bottom: 25px;
+  font-size: 15px;
 }
 
 .follow-btn {
   display: inline-block;
-  background: #e1306c;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: white;
   text-decoration: none;
-  padding: 14px 30px;
+  padding: 14px 35px;
   border-radius: 999px;
   font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
 }
 
 .follow-btn:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.6);
+  color: white;
 }
 </style>

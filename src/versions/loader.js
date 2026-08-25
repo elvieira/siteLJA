@@ -15,7 +15,8 @@ import { registeredVersions } from "./registry";
 
 // Cache em memória durante a sessão
 const memoryCache = new Map();
-const CACHE_TTL_MS = 15 * 60 * 1000; // 15 minutos
+// Tempo de vida do cache na memória/sessionStorage (30 minutos)
+const CACHE_TTL_MS = 30 * 60 * 1000; 
 
 /**
  * Converte cor HEX para RGBA para estilização dinâmica
@@ -34,37 +35,34 @@ export function hexToRgba(hex, alpha = 1) {
 }
 
 /**
- * Helper para testar se uma URL de imagem existe (Rápido via HEAD request)
+ * Busca por uma imagem válida com extensão (.webp)
+ * Prioriza Raw GitHub (atualiza em ~5 min) e usa CDN como fallback (pode ter cache de até 7 dias).
  */
-async function checkImageUrl(url) {
+async function findValidImage(cdnBaseUrl, rawBaseUrl, name) {
+  const url = `${cdnBaseUrl}/${name}.webp`;
+  const rawUrl = `${rawBaseUrl}/${name}.webp`;
+  const cacheBuster = Math.floor(Date.now() / (1000 * 60 * 30)); // muda a cada 30 min
+
+  // 1. Tentar Raw GitHub primeiro (sempre tem a versão mais recente)
   try {
-    const res = await fetch(url, { method: "HEAD" });
-    return res.ok;
+    const rawRes = await fetch(`${rawUrl}?v=${cacheBuster}`, { method: "HEAD" });
+    if (rawRes.ok) {
+      return `${rawUrl}?v=${cacheBuster}`;
+    }
   } catch {
-    return false;
+    // Raw indisponível, tenta CDN
   }
-}
 
-/**
- * Busca se a imagem webp existe
- */
-async function findValidImage(baseUrl, nameBase) {
-  const extensions = ["webp"]; // Exigência rigorosa: apenas .webp
-  
-  // Roda as verificações em paralelo
-  const checks = extensions.map(async (ext) => {
-    const url = `${baseUrl}/${nameBase}.${ext}`;
-    const exists = await checkImageUrl(url);
-    return { exists, url, ext };
-  });
-
-  const results = await Promise.all(checks);
-  
-  // Retorna a primeira que existir na ordem de preferência
-  for (const ext of extensions) {
-    const found = results.find(r => r.ext === ext && r.exists);
-    if (found) return found.url;
+  // 2. Fallback: CDN (jsDelivr) — mais rápido, mas pode ter cache antigo
+  try {
+    const res = await fetch(`${url}?v=${cacheBuster}`, { method: "HEAD" });
+    if (res.ok) {
+      return `${url}?v=${cacheBuster}`;
+    }
+  } catch {
+    // CDN também falhou
   }
+
   return null;
 }
 
@@ -74,8 +72,10 @@ async function findValidImage(baseUrl, nameBase) {
 export async function loadCommunityVersion(versionConfig, forceRefresh = false) {
   const { slug, repo, branch = "main", folder = "community", color = "#FBBF24", stage = "Beta", platforms = ["linux", "mac", "windows"] } = versionConfig;
 
+  if (!repo) return null;
+
   // Verificar cache
-  const cacheKey = `comm_ver_v5_${slug}`;
+  const cacheKey = `comm_ver_v7_${slug}`;
   if (!forceRefresh && memoryCache.has(cacheKey)) {
     const cached = memoryCache.get(cacheKey);
     if (Date.now() - cached.timestamp < CACHE_TTL_MS) {
@@ -109,11 +109,26 @@ export async function loadCommunityVersion(versionConfig, forceRefresh = false) 
   let releases = [];
   let isRemote = false;
 
+  // Função auxiliar: buscar JSON priorizando Raw GitHub (mais fresco) com CDN como fallback
+  const fetchJsonFresh = async (filename) => {
+    // 1. Tentar Raw GitHub primeiro (atualiza em ~5 min após commit)
+    try {
+      const rawRes = await fetch(`${rawBaseUrl}/${filename}`);
+      if (rawRes.ok) return rawRes;
+    } catch {}
+    // 2. Fallback: CDN (pode ter cache de até 7 dias)
+    try {
+      const cdnRes = await fetch(`${cdnBaseUrl}/${filename}`);
+      if (cdnRes.ok) return cdnRes;
+    } catch {}
+    return null;
+  };
+
   // 1. Buscar pt.json e es.json (Rápido via CDN preferencialmente)
   try {
     const [ptRes, esRes] = await Promise.all([
-      fetch(`${cdnBaseUrl}/pt.json`).catch(() => fetch(`${rawBaseUrl}/pt.json`)),
-      fetch(`${cdnBaseUrl}/es.json`).catch(() => fetch(`${rawBaseUrl}/es.json`)),
+      fetchJsonFresh("pt.json"),
+      fetchJsonFresh("es.json"),
     ]);
 
     if (ptRes && ptRes.ok && esRes && esRes.ok) {
@@ -136,7 +151,7 @@ export async function loadCommunityVersion(versionConfig, forceRefresh = false) 
   }
 
   // 2. Buscar Imagem Principal OBRIGATÓRIA (Extrema velocidade)
-  const mainImgUrl = await findValidImage(cdnBaseUrl, "main");
+  const mainImgUrl = await findValidImage(cdnBaseUrl, rawBaseUrl, "main");
   if (!mainImgUrl) {
     return null; // A imagem main.webp é estritamente obrigatória!
   }
@@ -202,7 +217,7 @@ export async function loadCommunityVersion(versionConfig, forceRefresh = false) 
     const photoIndices = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
     
     const galleryUrls = await Promise.all(
-      photoIndices.map(idx => findValidImage(cdnBaseUrl, idx))
+      photoIndices.map(idx => findValidImage(cdnBaseUrl, rawBaseUrl, idx))
     );
 
     let hasNewPhotos = false;
@@ -230,10 +245,6 @@ export async function loadCommunityVersion(versionConfig, forceRefresh = false) 
   }, 0);
 
   return result;
-}
-
-function esResUrl(rawBase) {
-  return `${rawBase}/es.json`;
 }
 
 /**
