@@ -1,5 +1,5 @@
 <template>
-  <section class="community-details-page spad set-bg">
+  <section class="community-details-page spad set-bg" :style="versionData?.themeStyles">
     <div class="container text-white">
       <!-- Back Navigation -->
       <div class="row mb-4">
@@ -33,9 +33,7 @@
                 <span
                   class="codename-badge"
                   :style="{
-                    color: versionData.color,
-                    backgroundColor: hexToRgba(versionData.color, 0.15),
-                    borderColor: hexToRgba(versionData.color, 0.35),
+                    ...getBadgeStyle(versionData.color),
                     fontSize: '14px',
                     padding: '4px 14px'
                   }"
@@ -118,7 +116,21 @@
             :key="index"
             class="col-lg-4 col-md-6 mb-4"
           >
-            <div class="comm-card justify-content-between p-4 h-100">
+            <div
+              :class="[
+                'comm-card justify-content-between p-4 h-100',
+                { 'comm-card--recommended': isPlatformRecommended(platform) }
+              ]"
+            >
+              <!-- Badge flutuando no canto superior direito sobre a linha do card -->
+              <span
+                v-if="isPlatformRecommended(platform)"
+                class="comm-card-rec-ribbon"
+                :title="$t('community_versions.dl_recommended_for_you') || 'Recomendado para o seu sistema'"
+              >
+                <i class="fa fa-star"></i> {{ $t("community_versions.dl_recommended") || "Recomendado" }}
+              </span>
+
               <div>
                 <div class="d-flex align-items-center justify-content-between mb-3">
                   <div class="d-flex align-items-center gap-2" style="display: flex; gap: 10px; align-items: center;">
@@ -135,11 +147,26 @@
                   :key="lIdx"
                   :href="link.url || 'https://github.com/louvorja'"
                   target="_blank"
-                  class="btn-all-topics"
+                  :class="[
+                    'btn-download-action',
+                    { 'btn-download-action--recommended': isLinkRecommended(platform, link) }
+                  ]"
+                  :title="link.label"
                 >
-                  <i :class="link.icon || 'fa fa-download'"></i>
-                  <span>{{ link.label }}</span>
-                  <span v-if="link.size" class="badge badge-dark ml-auto" style="background: rgba(255,255,255,0.1);">{{ link.size }}</span>
+                  <div class="dl-btn-left">
+                    <i :class="link.icon || 'fa fa-download'"></i>
+                    <span :title="link.label">{{ link.label }}</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2" style="display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0;">
+                    <span
+                      v-if="isLinkRecommended(platform, link)"
+                      class="dl-btn-recommended-tag"
+                      :title="$t('community_versions.dl_recommended') || 'Recomendado'"
+                    >
+                      <i class="fa fa-star"></i>
+                    </span>
+                    <span v-if="link.size" class="dl-btn-badge">{{ link.size }}</span>
+                  </div>
                 </a>
               </div>
             </div>
@@ -438,8 +465,10 @@ import {
   registeredVersions,
   loadCommunityVersion,
   getVersionDownloads,
+  detectUserPlatform,
   injectRemoteTranslations,
   hexToRgba,
+  getBadgeStyle,
 } from "@/versions";
 
 export default {
@@ -457,6 +486,7 @@ export default {
       lightboxOpen: false,
       lightboxIndex: 0,
       showAllReleases: false,
+      userPlatform: { os: null, arch: null },
     };
   },
   computed: {
@@ -484,6 +514,7 @@ export default {
     },
   },
   async mounted() {
+    this.userPlatform = detectUserPlatform();
     window.addEventListener("keydown", this.handleKeyDown);
     await this.fetchVersionDetails();
   },
@@ -492,15 +523,42 @@ export default {
   },
   methods: {
     hexToRgba,
+    getBadgeStyle,
+    isPlatformRecommended(platform) {
+      if (!this.userPlatform || !this.userPlatform.os) return false;
+      return platform.key === this.userPlatform.os;
+    },
+    isLinkRecommended(platform, link) {
+      if (!this.isPlatformRecommended(platform)) return false;
+
+      // Windows: .exe é o recomendado padrão
+      if (platform.key === "windows") {
+        return link.ext === "exe";
+      }
+
+      // macOS: Se Apple Silicon (ARM) detectado, recomenda ARM; se Intel, recomenda Intel
+      if (platform.key === "mac") {
+        if (this.userPlatform.arch === "arm") {
+          return link.isArm === true;
+        } else if (this.userPlatform.arch === "intel") {
+          return link.isArm === false;
+        }
+        return link.isArm === true;
+      }
+
+      // Linux: .AppImage é o formato universal recomendado
+      if (platform.key === "linux") {
+        return link.ext === "appimage";
+      }
+
+      return false;
+    },
     async fetchVersionDetails() {
       this.loading = true;
       const targetSlug = (this.slug || "flute").toLowerCase();
-      const config =
-        registeredVersions.find((v) => v.slug === targetSlug) ||
-        registeredVersions[0];
 
       try {
-        const data = await loadCommunityVersion(config);
+        const data = await loadCommunityVersion(targetSlug);
         this.versionData = data;
         if (data) {
           injectRemoteTranslations(this.$i18n, [data]);

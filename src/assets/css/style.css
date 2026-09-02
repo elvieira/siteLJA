@@ -100,7 +100,7 @@ ol {
 }
 
 .text-logo span {
-	color: #0F172A;
+	color: #0F172A !important;
     font-weight: 800;
     background: #FBBF24;
     padding: 2px 7px;
@@ -2114,31 +2114,22 @@ Community Page & Codename Badges
     letter-spacing: 0.06em;
     padding: 2px 8px;
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.06);
-    color: #cbd5e1;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--ver-color-15, rgba(255, 255, 255, 0.06));
+    color: var(--ver-color, #cbd5e1);
+    border: 1px solid var(--ver-color-35, rgba(255, 255, 255, 0.12));
     display: inline-flex;
     align-items: center;
     gap: 5px;
     transition: all 0.3s ease;
 }
 
-.codename-badge.codename-violin {
-    background: rgba(245, 166, 17, 0.15);
-    color: #F5A611;
-    border-color: rgba(245, 166, 17, 0.35);
+.comm-version-card {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.codename-badge.codename-piano {
-    background: rgba(224, 139, 91, 0.15);
-    color: #E08B5B;
-    border-color: rgba(224, 139, 91, 0.35);
-}
-
-.codename-badge.codename-flute {
-    background: rgba(0, 132, 193, 0.15);
-    color: #0084C1;
-    border-color: rgba(0, 132, 193, 0.35);
+.comm-version-card:hover {
+    border-color: var(--ver-color-35, rgba(251, 191, 36, 0.35));
+    box-shadow: 0 12px 30px rgba(var(--ver-color-rgb, 251, 191, 36), 0.18);
 }
 
 .platform-pill {
@@ -2183,6 +2174,142 @@ Community Details Page Redesign
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(251, 191, 36, 0.25);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Card de Download Recomendado para o SO do Usuário */
+.comm-card--recommended {
+    border-color: rgba(251, 191, 36, 0.45) !important;
+    background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 25px rgba(251, 191, 36, 0.12) !important;
+    position: relative;
+}
+
+.comm-card--recommended:hover {
+    border-color: rgba(251, 191, 36, 0.65) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 35px rgba(251, 191, 36, 0.22) !important;
+}
+
+/* Badge de Destaque Recomendado flutuando no canto superior direito sobre a linha do Card */
+.comm-card-rec-ribbon {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    transform: translateY(-50%);
+    background: #FBBF24;
+    color: #0f172a;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(251, 191, 36, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Botões de Download com ícone e texto alinhados à esquerda e badge de tamanho à direita */
+.btn-download-action {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-download-action:hover {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+    border-color: rgba(251, 191, 36, 0.3);
+    text-decoration: none;
+}
+
+.btn-download-action .dl-btn-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-align: left;
+}
+
+.btn-download-action .dl-btn-left i {
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.btn-download-action .dl-btn-left span {
+    font-size: 13.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.btn-download-action .dl-btn-badge {
+    margin-left: 12px;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-download-action:hover .dl-btn-badge {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+    border-color: rgba(251, 191, 36, 0.25);
+}
+
+/* Botão de Download Especificamente Recomendado */
+.btn-download-action--recommended {
+    background: rgba(251, 191, 36, 0.1) !important;
+    border-color: rgba(251, 191, 36, 0.45) !important;
+    color: #FBBF24 !important;
+}
+
+.btn-download-action--recommended:hover {
+    background: rgba(251, 191, 36, 0.22) !important;
+    border-color: #FBBF24 !important;
+    box-shadow: 0 0 16px rgba(251, 191, 36, 0.25) !important;
+}
+
+.btn-download-action--recommended .dl-btn-badge {
+    background: rgba(251, 191, 36, 0.2) !important;
+    color: #FBBF24 !important;
+    border-color: rgba(251, 191, 36, 0.35) !important;
+}
+
+.dl-btn-recommended-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #0f172a;
+    background: #FBBF24;
+    padding: 2px 5px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(251, 191, 36, 0.3);
+    flex-shrink: 0;
 }
 
 .comm-req-list {
@@ -3677,7 +3804,7 @@ FAQ Page Redesign
     transform: translateY(-7px) rotate(-45deg);
 }
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 1200px) {
     .mobile-menu-btn {
         display: block;
     }

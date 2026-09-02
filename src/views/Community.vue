@@ -27,7 +27,10 @@
           :key="v.slug"
           class="col-lg-4 col-md-6 mb-4"
         >
-          <div class="contact-card h-100 d-flex flex-column justify-content-between p-3 p-md-4">
+          <div
+            class="contact-card comm-version-card h-100 d-flex flex-column justify-content-between p-3 p-md-4"
+            :style="v.themeStyles || getVersionThemeStyles(v.color)"
+          >
             <div>
               <!-- Version Preview Cover (Main Image from GitHub / Local) -->
               <router-link
@@ -51,11 +54,7 @@
                   </div>
                   <span
                     class="codename-badge"
-                    :style="{
-                      color: v.color,
-                      backgroundColor: hexToRgba(v.color, 0.15),
-                      borderColor: hexToRgba(v.color, 0.35)
-                    }"
+                    :style="getBadgeStyle(v.color)"
                   >
                     {{ v.codename }}
                   </span>
@@ -109,7 +108,13 @@
 </template>
 
 <script>
-import { loadAllCommunityVersions, injectRemoteTranslations, hexToRgba } from "@/versions";
+import {
+  loadAllCommunityVersions,
+  injectRemoteTranslations,
+  hexToRgba,
+  getBadgeStyle,
+  getVersionThemeStyles,
+} from "@/versions";
 
 export default {
   name: "CommunityPage",
@@ -129,6 +134,8 @@ export default {
   },
   methods: {
     hexToRgba,
+    getBadgeStyle,
+    getVersionThemeStyles,
     async fetchCommunityVersions() {
       this.loading = true;
       try {
