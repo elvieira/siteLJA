@@ -352,6 +352,69 @@ function assembleVersion(config, remoteData) {
 }
 
 /**
+ * Busca releases do GitHub com resiliência máxima e fallback persistente:
+ * 1. Tenta /releases?per_page=10
+ * 2. Fallback para /releases/latest se a lista falhar
+ * 3. Fallback para último cache de sucesso no localStorage se a API do GitHub retornar erro/rate-limit
+ * 4. Salva no localStorage quando bem-sucedido
+ */
+async function fetchReleasesSafe(repo, slug) {
+  const storageKey = `comm_last_good_releases_${slug}`;
+  let cachedReleases = [];
+  try {
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      cachedReleases = JSON.parse(stored);
+    }
+  } catch {}
+
+  let freshReleases = null;
+
+  // 1. Tentar lista completa
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=10`, {
+      headers: { Accept: "application/vnd.github.v3+json" },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        freshReleases = data;
+      }
+    }
+  } catch {}
+
+  // 2. Se a lista falhou, tentar /releases/latest
+  if (!freshReleases || freshReleases.length === 0) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+        headers: { Accept: "application/vnd.github.v3+json" },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.tag_name) {
+          freshReleases = [data];
+        }
+      }
+    } catch {}
+  }
+
+  // 3. Se obteve releases válidas com assets, salva no storage
+  if (freshReleases && freshReleases.length > 0) {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(freshReleases));
+    } catch {}
+    return freshReleases;
+  }
+
+  // 4. Se a API do GitHub falhou (rate limit / reload / offline), usa o último bom conhecido
+  if (cachedReleases && cachedReleases.length > 0) {
+    return cachedReleases;
+  }
+
+  return [];
+}
+
+/**
  * Busca e valida os dados de uma versão específica.
  * Aceita tanto o objeto de configuração quanto o slug da versão.
  */
@@ -368,7 +431,7 @@ export async function loadCommunityVersion(versionConfigOrSlug, forceRefresh = f
   }
 
   const { slug, repo, branch = "main", folder = "community" } = config;
-  const cacheKey = `comm_remote_v10_${slug}`;
+  const cacheKey = `comm_remote_v11_${slug}`;
 
   // 1. Verificar cache dos dados remotos (em memória)
   if (!forceRefresh && memoryCache.has(cacheKey)) {
@@ -397,11 +460,6 @@ export async function loadCommunityVersion(versionConfigOrSlug, forceRefresh = f
   const cdnBaseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${folder}`;
   const rawBaseUrl = `https://raw.githubusercontent.com/${repo}/${branch}/${folder}`;
 
-  let ptJson = null;
-  let esJson = null;
-  let releases = [];
-  let isRemote = false;
-
   // Função auxiliar para buscar JSON priorizando Raw GitHub com CDN como fallback
   const fetchJsonFresh = async (filename) => {
     try {
@@ -415,63 +473,52 @@ export async function loadCommunityVersion(versionConfigOrSlug, forceRefresh = f
     return null;
   };
 
-  // Buscar pt.json e es.json
-  try {
-    const [ptRes, esRes] = await Promise.all([
-      fetchJsonFresh("pt.json"),
-      fetchJsonFresh("es.json"),
-    ]);
+  const photoIndices = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 
-    if (ptRes && ptRes.ok && esRes && esRes.ok) {
-      const ptData = await ptRes.json();
-      const esData = await esRes.json();
-
-      const ptValid = validateTranslationData(ptData, config.codename);
-      const esValid = validateTranslationData(esData, config.codename);
-
-      if (ptValid && esValid) {
-        ptJson = ptData;
-        esJson = esData;
-        isRemote = true;
-      } else {
-        console.warn(
-          `[CommunityLoader] Validação estrita falhou para '${slug}': pt.json ou es.json possuem campos ausentes/vazios, ou 'name' não corresponde exatamente ao codename '${config.codename}'.`
-        );
+  // Executa TODAS as buscas simultaneamente em paralelo (1 única rodada de rede)
+  const [translationsData, mainImgUrl, releases, galleryUrls] = await Promise.all([
+    // 1. Traduções pt.json e es.json
+    (async () => {
+      try {
+        const [ptRes, esRes] = await Promise.all([
+          fetchJsonFresh("pt.json"),
+          fetchJsonFresh("es.json"),
+        ]);
+        if (!ptRes || !ptRes.ok || !esRes || !esRes.ok) return null;
+        const [ptData, esData] = await Promise.all([ptRes.json(), esRes.json()]);
+        if (
+          validateTranslationData(ptData, config.codename) &&
+          validateTranslationData(esData, config.codename)
+        ) {
+          return { ptJson: ptData, esJson: esData };
+        } else {
+          console.warn(
+            `[CommunityLoader] Validação estrita falhou para '${slug}': pt.json ou es.json possuem campos ausentes/vazios, ou 'name' não corresponde ao codename '${config.codename}'.`
+          );
+        }
+      } catch (err) {
+        console.warn(`[CommunityLoader] Repositório remoto de ${slug} inacessível.`);
       }
-    }
-  } catch (err) {
-    console.warn(`[CommunityLoader] Repositório remoto de ${slug} inacessível.`);
-  }
+      return null;
+    })(),
+
+    // 2. Imagem principal obrigatória
+    findValidImage(cdnBaseUrl, rawBaseUrl, "main"),
+
+    // 3. Releases do GitHub (resiliente com fallback no localStorage)
+    fetchReleasesSafe(repo, slug),
+
+    // 4. Galeria de fotos 01 a 12 em paralelo
+    Promise.all(photoIndices.map((idx) => findValidImage(cdnBaseUrl, rawBaseUrl, idx))),
+  ]);
 
   // Se não tem arquivos mínimos no GitHub, a versão não é renderizada
-  if (!isRemote || !ptJson || !esJson) {
+  if (!translationsData || !mainImgUrl) {
     return null;
   }
 
-  // Buscar Imagem Principal OBRIGATÓRIA
-  const mainImgUrl = await findValidImage(cdnBaseUrl, rawBaseUrl, "main");
-  if (!mainImgUrl) {
-    return null;
-  }
-
-  // Buscar Releases do GitHub
-  try {
-    const relRes = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=10`);
-    if (relRes.ok) {
-      const relData = await relRes.json();
-      if (Array.isArray(relData)) {
-        releases = relData;
-      }
-    }
-  } catch {
-    // Ignora erro de releases
-  }
-
-  // Buscar fotos da galeria (01.webp até 12.webp) em paralelo
-  const photoIndices = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-  const galleryUrls = await Promise.all(
-    photoIndices.map((idx) => findValidImage(cdnBaseUrl, rawBaseUrl, idx))
-  );
+  const { ptJson, esJson } = translationsData;
+  const isRemote = true;
 
   const galleryPhotos = [];
   galleryUrls.forEach((url, i) => {
@@ -489,7 +536,7 @@ export async function loadCommunityVersion(versionConfigOrSlug, forceRefresh = f
     esJson,
     mainImage: mainImgUrl,
     galleryPhotos,
-    releases,
+    releases: releases || [],
     isRemote,
   };
 

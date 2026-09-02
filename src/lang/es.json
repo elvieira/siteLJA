@@ -200,7 +200,8 @@
         "req_gpu_title": "Tarjeta de Video (GPU)",
         "req_disk_title": "Almacenamiento",
         "req_screens_title": "Monitores / Proyección",
-        "changelog_title": "Historial de Lanzamientos y Actualizaciones"
+        "changelog_title": "Historial de Lanzamientos y Actualizaciones",
+        "prev_release_downloads": "Descargas de esta versión:"
     },
     "contact": {
         "title": "Ponte en Contacto",

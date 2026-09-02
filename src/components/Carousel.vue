@@ -148,6 +148,9 @@ export default {
     carouselConfig: {
       itemsToShow: 1,
       wrapAround: true,
+      autoplay: 6000,
+      pauseAutoplayOnHover: true,
+      transition: 600,
     },
   }),
   computed: {
@@ -159,14 +162,112 @@ export default {
 </script>
 
 <style>
+/* Customização das setas de navegação no desktop */
+.hero-slider .carousel__prev,
+.hero-slider .carousel__next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  z-index: 10;
+  margin: 0 16px;
+}
+
+.hero-slider .carousel__prev:hover,
+.hero-slider .carousel__next:hover {
+  background: #FBBF24;
+  border-color: #FBBF24;
+  color: #0f172a;
+}
+
+.hero-slider .carousel__prev:hover .carousel__icon,
+.hero-slider .carousel__next:hover .carousel__icon {
+  fill: #0f172a;
+}
+
 .carousel__icon {
-  fill: white;
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+  transition: fill 0.2s ease;
 }
-.carousel__pagination button {
-  opacity: 0.3;
-  background: white;
+
+/* Paginação com dots/pills elegantes */
+.hero-slider .carousel__pagination {
+  margin-top: -30px;
+  padding-bottom: 25px;
+  z-index: 10;
+  position: relative;
 }
-.carousel__pagination .carousel__pagination-button--active {
+
+.hero-slider .carousel__pagination button {
+  width: 24px;
+  height: 4px;
+  border-radius: 4px;
+  opacity: 0.25;
+  background: #ffffff;
+  margin: 0 4px;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-slider .carousel__pagination .carousel__pagination-button--active {
   opacity: 1;
+  background: #FBBF24;
+  width: 36px;
+}
+
+.carousel__slide {
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-slider .hs-text h2 {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+}
+
+/* Solução para telas menores e dispositivos móveis (evita sobrepor o texto e vazamento) */
+@media (max-width: 991px) {
+  /* Em telas menores que 992px, onde o texto ocupa a largura inteira,
+     ocultamos as setas para não ficarem em cima da leitura.
+     O usuário navega naturalmente pelo swipe de toque ou pelos botões da paginação. */
+  .hero-slider .carousel__prev,
+  .hero-slider .carousel__next {
+    display: none !important;
+  }
+
+  .hero-slider .hs-item {
+    min-height: 580px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+
+  .hero-slider .hs-text h2 {
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero-slider .carousel__pagination {
+    margin-top: 10px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slider .hs-text h2 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
 }
 </style>

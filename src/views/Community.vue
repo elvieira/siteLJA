@@ -25,7 +25,7 @@
         <div
           v-for="v in versionsList"
           :key="v.slug"
-          class="col-lg-4 col-md-6 mb-4"
+          class="col-xl-4 col-md-6 mb-4"
         >
           <div
             class="contact-card comm-version-card h-100 d-flex flex-column justify-content-between p-3 p-md-4"

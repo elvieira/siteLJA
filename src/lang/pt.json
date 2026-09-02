@@ -199,7 +199,8 @@
         "req_gpu_title": "Placa de Vídeo (GPU)",
         "req_disk_title": "Armazenamento",
         "req_screens_title": "Monitores / Projeção",
-        "changelog_title": "Histórico de Lançamentos & Atualizações"
+        "changelog_title": "Histórico de Lançamentos & Atualizações",
+        "prev_release_downloads": "Downloads desta versão:"
     },
     "contact": {
         "title": "Entre em Contato",
