@@ -28,7 +28,6 @@
           {{ $t("menu.download") }}
         </router-link>
       </li>
-      <!--
       <li>
         <router-link
           :to="{ name: 'community' }"
@@ -38,7 +37,6 @@
           {{ $t("menu.community") }}
         </router-link>
       </li>
-      -->
       <li>
         <router-link
           :to="{ name: 'help' }"

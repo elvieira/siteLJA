@@ -3,7 +3,7 @@
   <section class="hero-section">
     <div class="hero-slider">
       <Carousel v-bind="carouselConfig">
-        <Slide v-for="slide in [1, 2, 4]" :key="slide">
+        <Slide v-for="slide in 4" :key="slide">
           <div class="hs-item">
             <div class="container">
               <!-- Slide 1: Windows Desktop -->
